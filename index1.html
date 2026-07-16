@@ -5870,20 +5870,40 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .dock-logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#6a62c4,#4b44a0);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;font-size:15px;}
 .dock-title{font-size:15px;font-weight:600;}
 .dock-sub{font-size:11.5px;color:var(--ink-3);margin-top:1px;}
-.dock-mode-btn{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--violet);background:#fff;border:1px solid rgba(91,83,184,.25);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;}
-.dock-mode-btn:hover{background:var(--violet);color:#fff;border-color:var(--violet);}
+.dock-mode-btn{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--green);background:#fff;border:1.5px solid var(--green);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;}
+.dock-mode-btn:hover{background:var(--green);color:#fff;border-color:var(--green);}
+.dock-home-btn{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:var(--green);background:#fff;border:1.5px solid var(--green);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;margin-right:8px;}
+.dock-home-btn:hover{background:var(--green);color:#fff;border-color:var(--green);}
 .dock-body{flex:1;overflow-y:auto;padding:20px 22px;display:flex;flex-direction:column;gap:14px;transition:padding .42s ease;}
 .asst-env.focus .dock-body{padding:22px 16%;}
 .dock-input{flex-shrink:0;padding:14px 22px;border-top:1px solid rgba(91,83,184,.14);display:flex;gap:9px;align-items:center;transition:padding .42s ease;}
 .asst-env.focus .dock-input{padding:14px 16%;}
-.dock-input-box{flex:1;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(91,83,184,.22);border-radius:11px;padding:12px 15px;}
+.dock-input-box{flex:1;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(47,138,91,.28);border-radius:11px;padding:12px 15px;}
 .dock-input-box span:first-child{flex:1;color:var(--ink-3);font-size:13px;}
-.dock-send{width:27px;height:27px;border-radius:7px;background:var(--violet);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.dock-next-btn{flex-shrink:0;background:var(--red);color:#fff;border:none;border-radius:11px;padding:12px 15px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:var(--font);white-space:nowrap;display:none;}
+.dock-send{width:27px;height:27px;border-radius:7px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dock-next-btn{flex-shrink:0;background:transparent;color:var(--green);border:1.5px solid var(--green);border-radius:11px;padding:12px 15px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:var(--font);white-space:nowrap;display:none;transition:all .15s;}
 .dock-next-btn.show{display:inline-flex;align-items:center;gap:6px;}
+.dock-next-btn:hover{background:var(--green);color:#fff;}
 /* now-viewing cue */
 .dock-cue{align-self:center;font-size:11.5px;color:var(--violet);background:#fff;border:1px solid rgba(91,83,184,.25);border-radius:99px;padding:5px 14px;box-shadow:var(--shadow-md);opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s;pointer-events:none;margin-bottom:2px;}
 .dock-cue.show{opacity:1;transform:translateY(0);}
+/* visibility badge inside the standing-context identity card */
+.dsc-vis{margin-top:8px;}
+/* AI summary moved into the conversation thread */
+.dock-summary{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px;box-shadow:var(--shadow-sm);}
+.dock-summary-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.dock-summary-head .spark{width:24px;height:24px;border-radius:7px;background:var(--violet);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dock-summary-head .t{font-size:12.5px;font-weight:600;color:var(--ink);}
+.dock-summary-body{font-size:13.5px;line-height:1.6;color:var(--ink-2);}
+.dock-summary-prob{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3);}
+.dock-summary-prob-v{font-weight:700;color:var(--amber);}
+.dock-summary-prob-v.critical{color:var(--red);}
+.dock-summary-prob-v.healthy{color:var(--green);}
+.dock-summary-divider{height:1px;background:var(--line);margin:14px -16px;}
+.dock-summary-subhead{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:11px;}
+.dock-summary-subhead b{color:var(--violet);font-weight:600;}
+.dock-summary-ts{margin-left:auto;font-size:11px;color:var(--ink-3);font-weight:400;}
+.dock-summary .strip-rows{display:flex;flex-direction:column;gap:9px;}
 /* strip: back + queue + identity */
 .ds-back{font-size:12px;font-weight:600;color:var(--ink-3);background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:5px;text-align:left;}
 .ds-back:hover{color:var(--ink);}
@@ -5998,6 +6018,16 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .dock-body &gt; *{flex:0 0 auto;}
 .dock-body .agent-strip{overflow:visible;height:auto;}
 .dock-body .agent-strip .strip-rows{position:relative;}
+/* Agent activity strip when shown in the narrow standing-context column */
+#dockStrip .agent-strip{flex:0 0 auto;overflow:visible;height:auto;padding:12px 13px;margin-bottom:0;}
+#dockStrip .agent-strip-head{flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+#dockStrip .agent-strip-head .spark{width:22px;height:22px;border-radius:7px;}
+#dockStrip .agent-strip-head .t{font-size:12px;line-height:1.35;flex:1 1 auto;min-width:0;}
+#dockStrip .agent-strip-head .ts{flex-basis:100%;margin-left:32px;font-size:10.5px;}
+#dockStrip .strip-row{align-items:flex-start;gap:8px;}
+#dockStrip .strip-ic{width:20px;height:20px;border-radius:6px;}
+#dockStrip .strip-line{font-size:12px;line-height:1.4;}
+#dockStrip .strip-cta{font-size:11.5px;}
 @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
 
 /* ---------- Welcome ---------- */
@@ -6270,24 +6300,27 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .exp-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#e0a24a,#c77a2c);}
 .exp-fill.minor{background:var(--line-2);}
 .conf-note{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-3);margin-top:16px;padding-top:16px;border-top:1px solid var(--line);}
-.rec{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:8px;transition:all .18s;}
-.rec:hover{border-color:var(--line-2);box-shadow:var(--shadow-sm);}
-.rec.top{border-color:var(--accent);background:linear-gradient(180deg,var(--accent-soft),transparent 60%);}
+.rec{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:8px;transition:all .18s;background:var(--surface);box-shadow:var(--shadow-sm);}
+.rec:hover{border-color:var(--line-2);box-shadow:var(--shadow-md);}
+.rec.top{border-color:var(--accent);background:linear-gradient(180deg,var(--accent-soft),var(--surface) 55%);}
 .rec-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.rec-rank{width:22px;height:22px;border-radius:7px;background:var(--ink);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.rec.top .rec-rank{background:var(--accent);}
-.rec-title{font-size:15px;font-weight:600;}
-.rec-why{font-size:13.5px;color:var(--ink-2);line-height:1.55;margin-bottom:12px;}
+.rec-rank{width:22px;height:22px;border-radius:7px;background:transparent;color:var(--ink-2);border:1.5px solid var(--line-2);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rec.top .rec-rank{background:transparent;color:var(--accent);border-color:var(--accent);}
+.rec-title{font-size:13.5px;font-weight:600;}
+.rec-why{font-size:12.5px;color:var(--ink-2);line-height:1.5;margin-bottom:11px;}
 .rec-stats{display:flex;gap:20px;margin-bottom:14px;}
-.rec-stat .k{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;}
-.rec-stat .v{font-size:14px;font-weight:600;margin-top:2px;}
+.rec-stat .k{font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;}
+.rec-stat .v{font-size:12.5px;font-weight:600;margin-top:2px;}
 .rec-stat .v.good{color:var(--green);}
 .btn-exec{font-size:13.5px;font-weight:600;color:#fff;background:var(--ink);border:none;border-radius:11px;padding:10px 16px;cursor:pointer;transition:all .18s;display:inline-flex;align-items:center;gap:7px;}
 .btn-exec:hover{background:#000;transform:translateY(-1px);}
-.rec.top .btn-exec{background:var(--accent);}
-.rec.top .btn-exec:hover{background:#00695c;}
+.rec .btn-exec{color:var(--accent);background:transparent;border:1.5px solid var(--accent);}
+.rec .btn-exec:hover{background:var(--accent);color:#fff;transform:none;}
+.rec.top .btn-exec{color:var(--accent);background:transparent;border:1.5px solid var(--accent);}
+.rec.top .btn-exec:hover{background:var(--accent);color:#fff;}
 .btn-ghost{font-size:13.5px;font-weight:500;color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:11px;padding:10px 16px;cursor:pointer;margin-left:8px;}
 .btn-ghost:hover{background:var(--surface-2);}
+.rec .btn-exec,.rec .btn-ghost{font-size:12.5px;padding:9px 15px;}
 .journey{display:flex;align-items:flex-start;justify-content:space-between;position:relative;padding-top:6px;}
 .journey::before{content:&#x27;&#x27;;position:absolute;top:12px;left:8%;right:8%;height:2px;background:var(--line-2);}
 .jstep{display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;position:relative;z-index:1;}
@@ -6376,6 +6409,39 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .rec-done-btn.undo{background:transparent;color:var(--ink-2);border-color:var(--line-2);}
 .rec-done-btn.undo:hover{background:var(--surface);border-color:var(--ink-3);color:var(--ink);}
 .rec-done-btn.undo .undo-timer{font-variant-numeric:tabular-nums;opacity:.7;}
+
+/* ── Inline review editor (replaces the approval modal — lives inside the rec card) ── */
+.rec-actions{display:flex;align-items:center;gap:8px;}
+.rec.executed .rec-review{display:none !important;}
+.rec-review{margin-top:12px;border-top:1px solid var(--line);padding-top:12px;animation:doneIn .28s cubic-bezier(.2,.8,.3,1);}
+.rec-review-label{font-size:10.5px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.rec-review-preview{background:#fff;border:1px solid var(--line-2);border-radius:11px;padding:13px 15px;font-size:13px;line-height:1.6;color:var(--ink);outline:none;transition:border-color .15s;}
+.rec-review-preview:focus{border-color:var(--accent);}
+.rec-review-channel{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--ink-3);margin-top:10px;}
+.rec-review-channel .pill{background:var(--accent-soft);color:var(--accent);font-weight:600;padding:3px 9px;border-radius:7px;font-size:11px;}
+.rec-review-foot{display:flex;align-items:center;gap:8px;margin-top:12px;}
+.rec-review-editnote{font-size:11px;color:var(--ink-3);margin-right:auto;display:inline-flex;align-items:center;gap:5px;}
+.rec-review .freq-warn{margin-top:12px;}
+.rec-review .freq-ack{margin-top:8px;}
+
+/* Unified button style for the thread/rec context — filled green, consistent radius */
+.btn-send{font-size:12.5px;font-weight:600;color:#fff;background:var(--green);border:none;border-radius:11px;padding:9px 15px;cursor:pointer;font-family:var(--font);transition:all .15s;display:inline-flex;align-items:center;gap:7px;}
+.btn-send:hover{background:#256f49;transform:translateY(-1px);}
+.btn-send.blocked{opacity:.45;pointer-events:none;}
+.btn-cancel{font-size:12.5px;font-weight:500;color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:11px;padding:9px 15px;cursor:pointer;font-family:var(--font);transition:all .15s;}
+.btn-cancel:hover{background:var(--surface-2);}
+
+/* Outgoing message bubble — what the agent sends out (purple) */
+.rec.executed .rec-sent{display:block;}
+.rec-sent{display:none;animation:doneIn .35s cubic-bezier(.2,.8,.3,1);}
+.sent-bubble{background:var(--violet);color:#fff;border-radius:16px 16px 4px 16px;padding:12px 15px;font-size:13px;line-height:1.55;margin-left:auto;max-width:86%;box-shadow:var(--shadow-sm);}
+.sent-head{display:flex;align-items:center;gap:7px;margin:0 0 8px auto;justify-content:flex-end;font-size:11px;color:var(--ink-3);}
+.sent-head .sent-ic{width:18px;height:18px;border-radius:5px;background:var(--violet-soft);color:var(--violet);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sent-meta{font-size:11px;color:var(--ink-3);margin:6px 4px 0 auto;text-align:right;display:flex;align-items:center;gap:8px;justify-content:flex-end;}
+.sent-meta .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulseAnim 1.6s ease infinite;}
+.sent-undo{background:transparent;border:none;color:var(--ink-2);font-weight:600;font-size:11.5px;cursor:pointer;font-family:var(--font);display:inline-flex;align-items:center;gap:4px;padding:0;}
+.sent-undo:hover{color:var(--ink);text-decoration:underline;}
+.sent-undo .undo-timer{font-variant-numeric:tabular-nums;opacity:.7;}
 
 /* autonomy tiers on recommendations */
 .rec-tier{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:4px 9px;border-radius:8px;margin-bottom:10px;}
@@ -6869,6 +6935,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
               &lt;div class=&quot;dock-sub&quot; id=&quot;dockSub&quot;&gt;Working&lt;/div&gt;
             &lt;/div&gt;
             &lt;div style=&quot;flex:1&quot;&gt;&lt;/div&gt;
+            &lt;button class=&quot;dock-home-btn&quot; id=&quot;dockHomeBtn&quot; onclick=&quot;exitAsst()&quot; title=&quot;Back to home&quot;&gt;‹ Home&lt;/button&gt;
             &lt;button class=&quot;dock-mode-btn&quot; id=&quot;dockModeBtn&quot; onclick=&quot;toggleAsstMode()&quot;&gt;&lt;span id=&quot;dockModeIcon&quot;&gt;⤢&lt;/span&gt; &lt;span id=&quot;dockModeLabel&quot;&gt;Expand&lt;/span&gt;&lt;/button&gt;
           &lt;/div&gt;
           &lt;div class=&quot;dock-body&quot; id=&quot;dockBody&quot;&gt;&lt;!-- rendered by renderDockSurface() --&gt;&lt;/div&gt;
@@ -7187,7 +7254,7 @@ function renderProfile(key){
     if(eff===2){
       actionBlock=`&lt;div class=&quot;rec-timer-bar&quot; id=&quot;timer-${idx}&quot;&gt;&lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 8v4l3 2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt; Acting in &lt;b id=&quot;cd-${idx}&quot;&gt;30:00&lt;/b&gt; — no action needed &lt;button class=&quot;veto&quot; onclick=&quot;event.stopPropagation();vetoTimer(${idx})&quot;&gt;Hold &amp;amp; review&lt;/button&gt;&lt;/div&gt;`;
     } else {
-      actionBlock=`&lt;button class=&quot;btn-exec&quot; onclick=&quot;event.stopPropagation();openExec(${idx})&quot;&gt;${r.top?&#x27;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 12h14m-6-6l6 6-6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; &#x27;:&#x27;&#x27;}Review &amp;amp; approve&lt;/button&gt;&lt;button class=&quot;btn-ghost&quot; onclick=&quot;event.stopPropagation();openExec(${idx})&quot;&gt;Edit&lt;/button&gt;`;
+      actionBlock=`&lt;div class=&quot;rec-actions&quot;&gt;&lt;button class=&quot;btn-exec&quot; onclick=&quot;event.stopPropagation();openExec(${idx})&quot;&gt;${r.top?&#x27;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 12h14m-6-6l6 6-6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; &#x27;:&#x27;&#x27;}Review &amp;amp; approve&lt;/button&gt;&lt;button class=&quot;btn-ghost&quot; onclick=&quot;event.stopPropagation();openExec(${idx},true)&quot;&gt;Edit&lt;/button&gt;&lt;/div&gt;`;
     }
     const effWhy = (monitorOn &amp;&amp; r.tier!==3) ? &#x27;Monitor-only is on for this member — routed to you for approval&#x27; : r.tierWhy;
     const gateBadge = r.gate ? &#x27;&lt;span class=&quot;rec-gate&quot;&gt;✓ Passes member-benefit gate&lt;/span&gt;&#x27; : &#x27;&#x27;;
@@ -7201,6 +7268,8 @@ function renderProfile(key){
       &lt;p class=&quot;rec-why&quot;&gt;${r.why}&lt;/p&gt;
       &lt;div class=&quot;rec-stats&quot;&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Confidence&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;${r.conf}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Expected outcome&lt;/div&gt;&lt;div class=&quot;v good&quot;&gt;${r.out}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
       ${actionBlock}
+      &lt;div class=&quot;rec-review&quot; id=&quot;review-${idx}&quot; style=&quot;display:none&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;rec-sent&quot; id=&quot;sent-${idx}&quot;&gt;&lt;/div&gt;
       &lt;div class=&quot;rec-done&quot; id=&quot;done-${idx}&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;`;
   }).join(&#x27;&#x27;) || &#x27;&lt;div style=&quot;text-align:center;color:var(--ink-3);font-size:13.5px;padding:20px 0&quot;&gt;Nothing needs your approval right now — the agent has it handled.&lt;/div&gt;&#x27;;
@@ -7385,6 +7454,7 @@ function renderDockStrip(){
       &lt;div class=&quot;ds-name&quot;&gt;${m.n}&lt;/div&gt;
       &lt;div class=&quot;ds-status ${statusCls}&quot;&gt;&lt;span class=&quot;d&quot;&gt;&lt;/span&gt; ${statusLbl}&lt;/div&gt;
       ${(pf&amp;&amp;pf.meta)?`&lt;div class=&quot;dsc-meta&quot;&gt;${pf.meta}&lt;/div&gt;`:(m.t?`&lt;div class=&quot;dsc-meta&quot;&gt;${m.t}&lt;/div&gt;`:&#x27;&#x27;)}
+      ${m.vis?`&lt;div class=&quot;dsc-vis&quot;&gt;${visBadge(m.vis)}&lt;/div&gt;`:&#x27;&#x27;}
     &lt;/div&gt;`;
 
   // ----- CARD: donut score -----
@@ -7478,7 +7548,6 @@ function renderDockStrip(){
     ${idCard}
     ${donutCard}
     ${whyCard}
-    ${summaryCard}
     ${journeyCard}
     ${trackCard}
     ${unwiredNote}`;
@@ -7497,6 +7566,8 @@ function renderDockSurface(){
   if(ASST_FOCUS){
     env.classList.add(&#x27;focus&#x27;);
     modeIcon.textContent=&#x27;⤡&#x27;; modeLabel.textContent=&#x27;Collapse&#x27;;
+    // In the top-level queue/focus view there is nothing to collapse — Home is the way out.
+    document.getElementById(&#x27;dockModeBtn&#x27;).style.display=&#x27;none&#x27;;
     nextBtn.classList.remove(&#x27;show&#x27;);
     // Focus body: if a queue is active, show the ranked cards; else broad ask
     if(ASST_QUEUE){
@@ -7542,6 +7613,7 @@ function renderDockSurface(){
 
   // ----- DOCKED: working one member -----
   env.classList.remove(&#x27;focus&#x27;);
+  document.getElementById(&#x27;dockModeBtn&#x27;).style.display=&#x27;&#x27;;
   modeIcon.textContent=&#x27;⤢&#x27;; modeLabel.textContent = ASST_QUEUE ? (&#x27;See all &#x27;+ASST_QUEUE.members.length) : &#x27;Expand&#x27;;
   const m=ASST_MEMBER; const key=profKeyFor(m);
   CURRENT_PROFILE=key;
@@ -7550,14 +7622,35 @@ function renderDockSurface(){
   if(ASST_QUEUE){ nextBtn.classList.add(&#x27;show&#x27;); nextBtn.innerHTML = ASST_QIDX&lt;ASST_QUEUE.members.length-1?&#x27;✓ Done · next member ›&#x27;:&#x27;✓ Done · finish queue&#x27;; }
   else nextBtn.classList.remove(&#x27;show&#x27;);
 
-  body.innerHTML = `&lt;div class=&quot;dock-cue&quot; id=&quot;dockCue&quot;&gt;&lt;/div&gt;` + buildAgentStripHTML(key, m.n) + buildRecsHTML(key) + buildAskHTML(m);
+  body.innerHTML = `&lt;div class=&quot;dock-cue&quot; id=&quot;dockCue&quot;&gt;&lt;/div&gt;` + buildSummaryHTML(key) + buildRecsHTML(key) + buildAskHTML(m);
   startTimersForKey(key);
 }
 
-/* build the &quot;Here&#x27;s what I&#x27;ve done&quot; strip HTML for a key (displayName overrides the borrowed profile name) */
-function buildAgentStripHTML(key, displayName){
+/* build the AI summary block for the conversation thread — now also folds in
+   the Here's-what-Ive-done activity as one white message bubble */
+function buildSummaryHTML(key){
   const p=PROFILES[key]; if(!p) return &#x27;&#x27;;
-  const fn=(displayName||p.name).split(&#x27; &#x27;)[0];
+  const fn=p.name.split(&#x27; &#x27;)[0];
+  const summaryBlock = p.summary ? `
+    &lt;p class=&quot;dock-summary-body&quot;&gt;${p.summary}&lt;/p&gt;
+    ${p.prob?`&lt;div class=&quot;dock-summary-prob&quot;&gt;&lt;span&gt;Stress probability&lt;/span&gt;&lt;span class=&quot;dock-summary-prob-v ${p.probClass||&#x27;&#x27;}&quot;&gt;${p.prob}&lt;/span&gt;&lt;/div&gt;`:&#x27;&#x27;}` : &#x27;&#x27;;
+  const doneRows = agentStripRows(key, fn);
+  const doneBlock = doneRows ? `
+    &lt;div class=&quot;dock-summary-divider&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;dock-summary-subhead&quot;&gt;Here’s what I’ve done for &lt;b&gt;${fn}&lt;/b&gt;&lt;span class=&quot;dock-summary-ts&quot;&gt;Updated just now&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;strip-rows&quot;&gt;${doneRows}&lt;/div&gt;` : &#x27;&#x27;;
+  if(!summaryBlock &amp;&amp; !doneBlock) return &#x27;&#x27;;
+  return `&lt;div class=&quot;dock-summary&quot;&gt;
+    &lt;div class=&quot;dock-summary-head&quot;&gt;&lt;span class=&quot;spark&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M3 12h3m12 0h3M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1&quot; stroke=&quot;#fff&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;div class=&quot;t&quot;&gt;Here’s what I’m seeing with &lt;b&gt;${fn}&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;
+    ${summaryBlock}
+    ${doneBlock}
+  &lt;/div&gt;`;
+}
+
+/* rows for the what-Ive-done activity — shared by the merged summary bubble */
+function agentStripRows(key, fn){
+  const p=PROFILES[key]; if(!p) return &#x27;&#x27;;
+  fn = fn || p.name.split(&#x27; &#x27;)[0];
   const monitorOn=!isAutonomous(key);
   const done=[],doing=[],open=[];
   p.recs.forEach((r,idx)=&gt;{const eff=monitorOn?3:r.tier;const it={r,idx,eff};if(eff===1)done.push(it);else if(eff===2)doing.push(it);else open.push(it);});
@@ -7573,6 +7666,14 @@ function buildAgentStripHTML(key, displayName){
   else rows+=`&lt;div class=&quot;strip-row placeholder&quot;&gt;&lt;span class=&quot;strip-ic doing muted&quot;&gt;${svgDoing}&lt;/span&gt;&lt;div class=&quot;strip-line muted&quot;&gt;Nothing scheduled to send.&lt;/div&gt;&lt;/div&gt;`;
   if(open.length){ rows+=`&lt;div class=&quot;strip-row&quot;&gt;&lt;span class=&quot;strip-ic need&quot;&gt;${svgNeed}&lt;/span&gt;&lt;div class=&quot;strip-line&quot;&gt;&lt;b&gt;${open.length} action${open.length&gt;1?&#x27;s&#x27;:&#x27;&#x27;}&lt;/b&gt; need${open.length&gt;1?&#x27;&#x27;:&#x27;s&#x27;} your review.&lt;/div&gt;&lt;button class=&quot;strip-cta&quot; onclick=&quot;scrollToRecs()&quot;&gt;Review&lt;/button&gt;&lt;/div&gt;`; }
   else rows+=`&lt;div class=&quot;strip-row placeholder&quot;&gt;&lt;span class=&quot;strip-ic need muted&quot;&gt;${svgNeed}&lt;/span&gt;&lt;div class=&quot;strip-line muted&quot;&gt;Nothing needs your review.&lt;/div&gt;&lt;/div&gt;`;
+  return rows;
+}
+
+/* build the &quot;Here&#x27;s what I&#x27;ve done&quot; strip HTML for a key (displayName overrides the borrowed profile name) */
+function buildAgentStripHTML(key, displayName){
+  const p=PROFILES[key]; if(!p) return &#x27;&#x27;;
+  const fn=(displayName||p.name).split(&#x27; &#x27;)[0];
+  const rows=agentStripRows(key, fn);
   return `&lt;div class=&quot;agent-strip&quot;&gt;&lt;div class=&quot;agent-strip-head&quot;&gt;&lt;span class=&quot;spark&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M3 12h3m12 0h3M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1&quot; stroke=&quot;#fff&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;div class=&quot;t&quot;&gt;Here’s what I’ve done for &lt;b&gt;${fn}&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;ts&quot;&gt;Updated just now&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;strip-rows&quot;&gt;${rows}&lt;/div&gt;&lt;/div&gt;`;
 }
 
@@ -7589,12 +7690,12 @@ function buildRecsHTML(key){
   const recRows=items.map(({r,idx,eff})=&gt;{
     let actionBlock=&#x27;&#x27;;
     if(eff===2){ actionBlock=`&lt;div class=&quot;rec-timer-bar&quot; id=&quot;timer-${idx}&quot;&gt;&lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 8v4l3 2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt; Acting in &lt;b id=&quot;cd-${idx}&quot;&gt;30:00&lt;/b&gt; — no action needed &lt;button class=&quot;veto&quot; onclick=&quot;event.stopPropagation();vetoTimer(${idx})&quot;&gt;Hold &amp;amp; review&lt;/button&gt;&lt;/div&gt;`; }
-    else { actionBlock=`&lt;button class=&quot;btn-exec&quot; onclick=&quot;event.stopPropagation();openExec(${idx})&quot;&gt;${r.top?&#x27;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 12h14m-6-6l6 6-6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; &#x27;:&#x27;&#x27;}Review &amp;amp; approve&lt;/button&gt;&lt;button class=&quot;btn-ghost&quot; onclick=&quot;event.stopPropagation();openExec(${idx})&quot;&gt;Edit&lt;/button&gt;`; }
+    else { actionBlock=`&lt;div class=&quot;rec-actions&quot;&gt;&lt;button class=&quot;btn-exec&quot; onclick=&quot;event.stopPropagation();openExec(${idx})&quot;&gt;${r.top?&#x27;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 12h14m-6-6l6 6-6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; &#x27;:&#x27;&#x27;}Review &amp;amp; approve&lt;/button&gt;&lt;button class=&quot;btn-ghost&quot; onclick=&quot;event.stopPropagation();openExec(${idx},true)&quot;&gt;Edit&lt;/button&gt;&lt;/div&gt;`; }
     const effWhy=(monitorOn&amp;&amp;r.tier!==3)?&#x27;Monitor-only is on for this member — routed to you for approval&#x27;:r.tierWhy;
     const gateBadge=r.gate?&#x27;&lt;span class=&quot;rec-gate&quot;&gt;✓ Passes member-benefit gate&lt;/span&gt;&#x27;:&#x27;&#x27;;
     const collapsed=!r.top;
     const collapsedMeta=`&lt;span class=&quot;rec-collapsed-meta&quot;&gt;${r.out} &lt;span class=&quot;rec-expand-hint&quot;&gt;&lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M6 9l6 6 6-6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;`;
-    return `&lt;div class=&quot;rec ${r.top?&#x27;top&#x27;:&#x27;&#x27;} ${collapsed?&#x27;collapsed&#x27;:&#x27;&#x27;}&quot; id=&quot;rec-${idx}&quot; ${collapsed?`onclick=&quot;this.classList.remove(&#x27;collapsed&#x27;)&quot;`:&#x27;&#x27;}&gt;&lt;div class=&quot;rec-head&quot;&gt;&lt;span class=&quot;rec-rank&quot;&gt;${r.rank}&lt;/span&gt;&lt;span class=&quot;rec-title&quot;&gt;${r.title}&lt;/span&gt;${collapsedMeta}&lt;/div&gt;${tierBadge[eff]||&#x27;&#x27;}${gateBadge}&lt;div class=&quot;rec-why-tier&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 16v-4m0-4h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt; ${effWhy}&lt;/div&gt;&lt;p class=&quot;rec-why&quot;&gt;${r.why}&lt;/p&gt;&lt;div class=&quot;rec-stats&quot;&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Confidence&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;${r.conf}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Expected outcome&lt;/div&gt;&lt;div class=&quot;v good&quot;&gt;${r.out}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;${actionBlock}&lt;div class=&quot;rec-done&quot; id=&quot;done-${idx}&quot;&gt;&lt;/div&gt;&lt;/div&gt;`;
+    return `&lt;div class=&quot;rec ${r.top?&#x27;top&#x27;:&#x27;&#x27;} ${collapsed?&#x27;collapsed&#x27;:&#x27;&#x27;}&quot; id=&quot;rec-${idx}&quot; ${collapsed?`onclick=&quot;this.classList.remove(&#x27;collapsed&#x27;)&quot;`:&#x27;&#x27;}&gt;&lt;div class=&quot;rec-head&quot;&gt;&lt;span class=&quot;rec-rank&quot;&gt;${r.rank}&lt;/span&gt;&lt;span class=&quot;rec-title&quot;&gt;${r.title}&lt;/span&gt;${collapsedMeta}&lt;/div&gt;${tierBadge[eff]||&#x27;&#x27;}${gateBadge}&lt;div class=&quot;rec-why-tier&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 16v-4m0-4h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt; ${effWhy}&lt;/div&gt;&lt;p class=&quot;rec-why&quot;&gt;${r.why}&lt;/p&gt;&lt;div class=&quot;rec-stats&quot;&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Confidence&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;${r.conf}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Expected outcome&lt;/div&gt;&lt;div class=&quot;v good&quot;&gt;${r.out}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;${actionBlock}&lt;div class=&quot;rec-review&quot; id=&quot;review-${idx}&quot; style=&quot;display:none&quot;&gt;&lt;/div&gt;&lt;div class=&quot;rec-sent&quot; id=&quot;sent-${idx}&quot;&gt;&lt;/div&gt;&lt;div class=&quot;rec-done&quot; id=&quot;done-${idx}&quot;&gt;&lt;/div&gt;&lt;/div&gt;`;
   }).join(&#x27;&#x27;) || &#x27;&lt;div style=&quot;text-align:center;color:var(--ink-3);font-size:13.5px;padding:20px 0&quot;&gt;Nothing needs your approval right now — the agent has it handled.&lt;/div&gt;&#x27;;
   return `&lt;div class=&quot;ai-section-label rec-list-anchor&quot; id=&quot;dockRecsLabel&quot; style=&quot;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);margin:4px 2px&quot;&gt;Recommended actions&lt;/div&gt;${recRows}`;
 }
@@ -7960,7 +8061,7 @@ function vetoTimer(idx){
   VETOED[CURRENT_PROFILE][idx]=true;
   // convert that rec to a plain Tier-3 approval in-place on both surfaces
   const rec=document.getElementById(&#x27;rec-&#x27;+idx);
-  if(rec){const bar=rec.querySelector(&#x27;.rec-timer-bar&#x27;);if(bar)bar.outerHTML=`&lt;button class=&quot;btn-exec&quot; onclick=&quot;openExec(${idx})&quot;&gt;Review &amp;amp; approve&lt;/button&gt;&lt;button class=&quot;btn-ghost&quot; onclick=&quot;openExec(${idx})&quot;&gt;Edit&lt;/button&gt;`;}
+  if(rec){const bar=rec.querySelector(&#x27;.rec-timer-bar&#x27;);if(bar)bar.outerHTML=`&lt;div class=&quot;rec-actions&quot;&gt;&lt;button class=&quot;btn-exec&quot; onclick=&quot;openExec(${idx})&quot;&gt;Review &amp;amp; approve&lt;/button&gt;&lt;button class=&quot;btn-ghost&quot; onclick=&quot;openExec(${idx},true)&quot;&gt;Edit&lt;/button&gt;&lt;/div&gt;`;}
   // remove the doing row from the strip
   const cds=document.getElementById(&#x27;cds-&#x27;+idx);
   if(cds){const row=cds.closest(&#x27;.strip-row&#x27;);if(row)row.remove();}
@@ -8026,103 +8127,114 @@ function sendDrawerMsg(txt){
 
 /* ---------- execute flow ---------- */
 let EXEC_IDX=0;
-function openExec(idx){
+function openExec(idx,focusEdit){
   EXEC_IDX=idx;
   const p=PROFILES[CURRENT_PROFILE];
   const r=p.recs[idx];
-  const card=document.getElementById(&#x27;exec-modal-card&#x27;);
-  card.classList.remove(&#x27;done&#x27;);
-  document.getElementById(&#x27;exec-title&#x27;).textContent=r.title;
-  document.getElementById(&#x27;exec-sub&#x27;).textContent=&#x27;To &#x27;+p.name+&#x27; · nothing sends until you approve&#x27;;
-  document.getElementById(&#x27;exec-preview&#x27;).innerHTML=r.preview;
+  const rec=document.getElementById(&#x27;rec-&#x27;+idx);
+  if(rec) rec.classList.remove(&#x27;collapsed&#x27;);
+  const review=document.getElementById(&#x27;review-&#x27;+idx);
+  if(!review) return;
+  // hide the action buttons while reviewing
+  const actions = rec ? rec.querySelector(&#x27;.rec-actions&#x27;) : null;
+  if(actions) actions.style.display=&#x27;none&#x27;;
   const compTag = r.compliance===&#x27;marketing&#x27;
     ? &#x27;&lt;span class=&quot;compliance comp-marketing&quot;&gt;● Marketing — written consent on file&lt;/span&gt;&#x27;
     : &#x27;&lt;span class=&quot;compliance comp-servicing&quot;&gt;● Servicing — informational&lt;/span&gt;&#x27;;
-  document.getElementById(&#x27;exec-channel&#x27;).innerHTML=&#x27;&lt;span class=&quot;pill&quot;&gt;&#x27;+r.channel+&#x27;&lt;/span&gt; &#x27;+r.channelNote+&#x27; &amp;nbsp;&#x27;+compTag;
-  document.getElementById(&#x27;exec-success-title&#x27;).textContent=r.channel===&#x27;Call script&#x27;?&#x27;Scheduled&#x27;:r.channel===&#x27;Account credit&#x27;?&#x27;Applied&#x27;:&#x27;Sent&#x27;;
-  document.getElementById(&#x27;exec-success-sub&#x27;).textContent=r.sentMsg;
-  // ---- frequency governor: warn if this member was contacted very recently ----
   const isOutbound = r.channel!==&#x27;Call script&#x27; &amp;&amp; r.channel!==&#x27;Account credit&#x27; &amp;&amp; r.channel!==&#x27;Account change&#x27;;
   const lc=memberLastContact(CURRENT_PROFILE);
-  const existingWarn=document.getElementById(&#x27;freq-warn-block&#x27;);if(existingWarn)existingWarn.remove();
-  const execBtn=document.querySelector(&#x27;#exec-modal .btn-exec&#x27;);
   FREQ_ACK=false;
-  if(isOutbound &amp;&amp; recentlyContacted(lc)){
-    const block=document.createElement(&#x27;div&#x27;);
-    block.id=&#x27;freq-warn-block&#x27;;
-    block.innerHTML=`
+  const sendVerb = r.channel===&#x27;Call script&#x27;?&#x27;Schedule&#x27;:r.channel===&#x27;Account credit&#x27;?&#x27;Apply&#x27;:r.channel===&#x27;Account change&#x27;?&#x27;Send for confirmation&#x27;:&#x27;Approve &amp; send&#x27;;
+  const freqBlock = (isOutbound &amp;&amp; recentlyContacted(lc)) ? `
       &lt;div class=&quot;freq-warn&quot;&gt;
         &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 9v4m0 3h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L14 3.9a2 2 0 00-3.4 0z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;
-        &lt;span&gt;&lt;b&gt;${p.name.split(&#x27; &#x27;)[0]} was already reached ${lc.toLowerCase()}.&lt;/b&gt; Another message this soon risks feeling like over-contact. Consider spacing it out — or confirm you want to send anyway.&lt;/span&gt;
+        &lt;span&gt;&lt;b&gt;${p.name.split(&#x27; &#x27;)[0]} was already reached ${lc.toLowerCase()}.&lt;/b&gt; Another message this soon risks feeling like over-contact. Confirm you want to send anyway.&lt;/span&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;freq-ack&quot; id=&quot;freq-ack&quot; onclick=&quot;toggleFreqAck(this)&quot;&gt;&lt;span class=&quot;fa-box&quot;&gt;&lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;#fff&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; Send anyway — I&#x27;ve considered the timing&lt;/div&gt;`;
-    document.querySelector(&#x27;#exec-modal .modal-body&#x27;).appendChild(block);
-    if(execBtn)execBtn.classList.add(&#x27;blocked&#x27;);
-  } else {
-    if(execBtn)execBtn.classList.remove(&#x27;blocked&#x27;);
-  }
-  document.getElementById(&#x27;exec-modal&#x27;).classList.add(&#x27;open&#x27;);
+      &lt;div class=&quot;freq-ack&quot; id=&quot;freq-ack&quot; onclick=&quot;toggleFreqAck(this)&quot;&gt;&lt;span class=&quot;fa-box&quot;&gt;&lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;#fff&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; Send anyway — I&#x27;ve considered the timing&lt;/div&gt;` : &#x27;&#x27;;
+  const blockedAttr = freqBlock ? &#x27; blocked&#x27; : &#x27;&#x27;;
+  review.innerHTML = `
+    &lt;div class=&quot;rec-review-label&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M4 20h4L18 10l-4-4L4 16v4z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; Agent-drafted · click to edit&lt;/div&gt;
+    &lt;div class=&quot;rec-review-preview&quot; id=&quot;preview-${idx}&quot; contenteditable=&quot;true&quot;&gt;${r.preview}&lt;/div&gt;
+    &lt;div class=&quot;rec-review-channel&quot;&gt;&lt;span class=&quot;pill&quot;&gt;${r.channel}&lt;/span&gt; ${r.channelNote} &amp;nbsp;${compTag}&lt;/div&gt;
+    ${freqBlock}
+    &lt;div class=&quot;rec-review-foot&quot;&gt;
+      &lt;span class=&quot;rec-review-editnote&quot;&gt;Nothing sends until you tap ${sendVerb.replace(/&amp;.*/,&#x27;&#x27;).trim()}&lt;/span&gt;
+      &lt;button class=&quot;btn-cancel&quot; onclick=&quot;event.stopPropagation();cancelExec(${idx})&quot;&gt;Cancel&lt;/button&gt;
+      &lt;button class=&quot;btn-send${blockedAttr}&quot; id=&quot;send-${idx}&quot; onclick=&quot;event.stopPropagation();approveExec(${idx})&quot;&gt;${sendVerb}&lt;/button&gt;
+    &lt;/div&gt;`;
+  review.style.display=&#x27;block&#x27;;
+  if(focusEdit){ const pv=document.getElementById(&#x27;preview-&#x27;+idx); if(pv){ pv.focus();
+    try{ const rng=document.createRange(); rng.selectNodeContents(pv); rng.collapse(false); const sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(rng); }catch(e){} } }
+  review.scrollIntoView({behavior:&#x27;smooth&#x27;,block:&#x27;nearest&#x27;});
 }
-function approveExec(){
-  const gate=document.querySelector(&#x27;#exec-modal .btn-exec&#x27;);
-  if(gate&amp;&amp;gate.classList.contains(&#x27;blocked&#x27;)){showToast(&#x27;This member was contacted recently — confirm the timing to send&#x27;);return;}
-  const card=document.getElementById(&#x27;exec-modal-card&#x27;);
-  card.classList.add(&#x27;done&#x27;);
-  const p=PROFILES[CURRENT_PROFILE];const r=p.recs[EXEC_IDX];
+function cancelExec(idx){
+  const review=document.getElementById(&#x27;review-&#x27;+idx);
+  if(review){ review.style.display=&#x27;none&#x27;; review.innerHTML=&#x27;&#x27;; }
+  const rec=document.getElementById(&#x27;rec-&#x27;+idx);
+  const actions = rec ? rec.querySelector(&#x27;.rec-actions&#x27;) : null;
+  if(actions) actions.style.display=&#x27;&#x27;;
+}
+function approveExec(idx){
+  if(typeof idx!==&#x27;number&#x27;) idx=EXEC_IDX;
+  EXEC_IDX=idx;
+  const sendBtn=document.getElementById(&#x27;send-&#x27;+idx);
+  if(sendBtn&amp;&amp;sendBtn.classList.contains(&#x27;blocked&#x27;)){showToast(&#x27;This member was contacted recently — confirm the timing to send&#x27;);return;}
+  const p=PROFILES[CURRENT_PROFILE];const r=p.recs[idx];
   const now=new Date().toLocaleTimeString([], {hour:&#x27;numeric&#x27;,minute:&#x27;2-digit&#x27;});
   const verb = r.channel===&#x27;Call script&#x27;?&#x27;Scheduled&#x27;:r.channel===&#x27;Account credit&#x27;?&#x27;Applied&#x27;:r.channel===&#x27;Account change&#x27;?&#x27;Sent for confirmation&#x27;:&#x27;Sent&#x27;;
   const nextNote = {
-    &#x27;SMS&#x27;:&#x27;Watching for a reply — I’ll flag it the moment David responds.&#x27;,
-    &#x27;Email invite&#x27;:&#x27;Booking link is live — I’ll add the session to your calendar once he picks a time.&#x27;,
+    &#x27;SMS&#x27;:&#x27;Watching for a reply — I’ll flag it the moment &#x27;+p.name.split(&#x27; &#x27;)[0]+&#x27; responds.&#x27;,
+    &#x27;Email invite&#x27;:&#x27;Booking link is live — I’ll add the session to your calendar once they pick a time.&#x27;,
     &#x27;Account change&#x27;:&#x27;Waiting on the member to confirm — nothing changes until they accept.&#x27;,
     &#x27;Call script&#x27;:&#x27;On your list for this evening — I’ll log the outcome after the call.&#x27;,
-    &#x27;Plan offer&#x27;:&#x27;Sent for acceptance — I’ll notify you when he responds.&#x27;,
+    &#x27;Plan offer&#x27;:&#x27;Sent for acceptance — I’ll notify you when they respond.&#x27;,
     &#x27;Account credit&#x27;:&#x27;Credit applied — the member has been notified.&#x27;,
     &#x27;Offer&#x27;:&#x27;Delivered — I’ll watch for interest and route any reply to you.&#x27;,
     &#x27;Warm intro&#x27;:&#x27;Marcus has the context — he’ll follow up this week.&#x27;,
-    &#x27;Secure link invite&#x27;:&#x27;Invite sent. The moment James connects, I’ll re-score him with full cash-flow visibility and lift the blind-spot flag.&#x27;
+    &#x27;Secure link invite&#x27;:&#x27;Invite sent. The moment they connect, I’ll re-score with full cash-flow visibility.&#x27;
   }[r.channel] || &#x27;Done — I’ll keep an eye on it.&#x27;;
   const isMessage = r.channel!==&#x27;Call script&#x27; &amp;&amp; r.channel!==&#x27;Account credit&#x27; &amp;&amp; r.channel!==&#x27;Account change&#x27;;
+  // read the (possibly edited) text
+  const pv=document.getElementById(&#x27;preview-&#x27;+idx);
+  const sentText = pv ? pv.innerHTML : r.preview;
 
-  // build the confirmed row
-  const done=document.getElementById(&#x27;done-&#x27;+EXEC_IDX);
-  if(done){
-    done.innerHTML=`
-      &lt;div class=&quot;rec-done-top&quot;&gt;
-        &lt;span class=&quot;rec-done-check&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;#fff&quot; stroke-width=&quot;2.6&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;
-        &lt;span class=&quot;rec-done-title&quot;&gt;${r.title.replace(/^Send |^Offer |^Recommend a /,&#x27;&#x27;)} — ${verb.toLowerCase()}&lt;/span&gt;
-        &lt;span class=&quot;rec-done-meta&quot;&gt;just now · ${r.channel}&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;rec-done-next&quot;&gt;&lt;span class=&quot;pulse-dot&quot;&gt;&lt;/span&gt; ${nextNote}&lt;/div&gt;
-      &lt;div class=&quot;rec-done-actions&quot;&gt;
-        ${isMessage?`&lt;button class=&quot;rec-done-btn primary&quot; onclick=&quot;openDrawer(&#x27;${CURRENT_PROFILE}&#x27;)&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; View in conversation&lt;/button&gt;`:&#x27;&#x27;}
-        &lt;button class=&quot;rec-done-btn undo&quot; onclick=&quot;undoExec(${EXEC_IDX})&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M9 14l-4-4 4-4M5 10h9a5 5 0 015 5v1&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; Undo &lt;span class=&quot;undo-timer&quot; id=&quot;undo-${EXEC_IDX}&quot;&gt;10s&lt;/span&gt;&lt;/button&gt;
-      &lt;/div&gt;`;
+  // hide the review editor
+  const review=document.getElementById(&#x27;review-&#x27;+idx);
+  if(review){ review.style.display=&#x27;none&#x27;; review.innerHTML=&#x27;&#x27;; }
+
+  // build the outgoing (purple) message bubble in the thread
+  const sent=document.getElementById(&#x27;sent-&#x27;+idx);
+  if(sent){
+    sent.innerHTML=`
+      &lt;div class=&quot;sent-head&quot;&gt;&lt;span&gt;You approved · to ${p.name.split(&#x27; &#x27;)[0]} · ${now}&lt;/span&gt;&lt;span class=&quot;sent-ic&quot;&gt;&lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;sent-bubble&quot;&gt;${sentText}&lt;/div&gt;
+      &lt;div class=&quot;sent-meta&quot;&gt;&lt;span class=&quot;pulse-dot&quot;&gt;&lt;/span&gt; ${r.channel} · ${verb.toLowerCase()} — ${nextNote} &lt;button class=&quot;sent-undo&quot; onclick=&quot;undoExec(${idx})&quot;&gt;Undo &lt;span class=&quot;undo-timer&quot; id=&quot;undo-${idx}&quot;&gt;10s&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;`;
   }
-  const rec=document.getElementById(&#x27;rec-&#x27;+EXEC_IDX);
+  const rec=document.getElementById(&#x27;rec-&#x27;+idx);
   if(rec)rec.classList.add(&#x27;executed&#x27;);
 
   // undo countdown (10s window)
   let u=10;
-  if(UNDO_TIMERS[EXEC_IDX])clearInterval(UNDO_TIMERS[EXEC_IDX]);
-  const idxForUndo=EXEC_IDX;
+  if(UNDO_TIMERS[idx])clearInterval(UNDO_TIMERS[idx]);
+  const idxForUndo=idx;
   UNDO_TIMERS[idxForUndo]=setInterval(()=&gt;{
     u--;
-    const el=document.getElementById(&#x27;undo-&#x27;+idxForUndo);
-    if(el)el.textContent=u+&#x27;s&#x27;;
+    const elx=document.getElementById(&#x27;undo-&#x27;+idxForUndo);
+    if(elx)elx.textContent=u+&#x27;s&#x27;;
     if(u&lt;=0){
       clearInterval(UNDO_TIMERS[idxForUndo]);
-      const btn=document.querySelector(&#x27;#done-&#x27;+idxForUndo+&#x27; .rec-done-btn.undo&#x27;);
+      const btn=document.querySelector(&#x27;#sent-&#x27;+idxForUndo+&#x27; .sent-undo&#x27;);
       if(btn)btn.remove();
     }
   },1000);
 
+  showToast((r.channel===&#x27;Call script&#x27;?&#x27;Call scheduled&#x27;:r.channel===&#x27;Account credit&#x27;?&#x27;Fee waived&#x27;:&#x27;Sent&#x27;)+&#x27; · logged to &#x27;+p.name+&#x27;’s timeline&#x27;);
+
   // append the outgoing message into the conversation data (for message-type actions)
   if(isMessage){
-    const preview=document.getElementById(&#x27;exec-preview&#x27;).innerHTML;
     p.thread=p.thread||[];
     p.thread.push({sys:&#x27;Today · &#x27;+now});
-    p.thread.push({dir:&#x27;out&#x27;,agent:true,text:preview,meta:&#x27;Approved by you · &#x27;+r.channel});
+    p.thread.push({dir:&#x27;out&#x27;,agent:true,text:sentText,meta:&#x27;Approved by you · &#x27;+r.channel});
     if(DRAWER_KEY===CURRENT_PROFILE &amp;&amp; document.getElementById(&#x27;drawer&#x27;).classList.contains(&#x27;open&#x27;)){
       const t=document.getElementById(&#x27;drawer-thread&#x27;);t.innerHTML=threadHtml(p);t.scrollTop=t.scrollHeight;
     }
@@ -8134,6 +8246,10 @@ function undoExec(idx){
   if(UNDO_TIMERS[idx]){clearInterval(UNDO_TIMERS[idx]);delete UNDO_TIMERS[idx];}
   const rec=document.getElementById(&#x27;rec-&#x27;+idx);
   if(rec)rec.classList.remove(&#x27;executed&#x27;);
+  const sent=document.getElementById(&#x27;sent-&#x27;+idx);
+  if(sent){ sent.innerHTML=&#x27;&#x27;; }
+  const actions = rec ? rec.querySelector(&#x27;.rec-actions&#x27;) : null;
+  if(actions) actions.style.display=&#x27;&#x27;;
   // remove the message we appended, if any
   const p=PROFILES[CURRENT_PROFILE];
   if(p.thread&amp;&amp;p.thread.length&gt;=2){
@@ -8631,7 +8747,7 @@ let FREQ_ACK=false;
 function toggleFreqAck(el){
   FREQ_ACK=!FREQ_ACK;
   el.classList.toggle(&#x27;on&#x27;,FREQ_ACK);
-  const btn=document.querySelector(&#x27;#exec-modal .btn-exec&#x27;);
+  const btn=document.getElementById(&#x27;send-&#x27;+EXEC_IDX) || document.querySelector(&#x27;#exec-modal .btn-exec&#x27;);
   if(btn)btn.classList.toggle(&#x27;blocked&#x27;,!FREQ_ACK);
 }
 
