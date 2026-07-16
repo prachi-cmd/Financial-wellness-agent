@@ -4306,6 +4306,12 @@ body{font-family:var(--f);background:var(--bg);color:var(--t1);display:flex;flex
 #emilyPanelHost .gp-mscore.gp-crit { background:var(--crit-bg); color:var(--crit-tx); }
 #emilyPanelHost .gp-minfo { flex:1; min-width:0; }
 #emilyPanelHost .gp-mname { font-size:13px; font-weight:600; color:#0c0b18; }
+#emilyPanelHost .gp-mnameline { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+#emilyPanelHost .vis-badge { display:inline-flex; align-items:center; gap:4px; font-size:10px; font-weight:600; letter-spacing:.01em; padding:2px 7px; border-radius:6px; white-space:nowrap; line-height:1.5; border:1px solid transparent; }
+#emilyPanelHost .vis-badge svg { width:11px; height:11px; flex-shrink:0; }
+#emilyPanelHost .vis-badge.full { color:#2f8a5b; background:rgba(96,190,140,.12); border-color:rgba(96,190,140,.28); }
+#emilyPanelHost .vis-badge.loan { color:#c77a2c; background:rgba(224,162,74,.13); border-color:rgba(224,162,74,.30); }
+#emilyPanelHost .vis-badge.deposit { color:#3a6ea5; background:rgba(90,140,200,.12); border-color:rgba(90,140,200,.28); }
 #emilyPanelHost .gp-mreason { font-size:11px; color:var(--ai-text-tertiary); line-height:1.4; margin:2px 0 5px; }
 #emilyPanelHost .gp-mfoot { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
 #emilyPanelHost .gp-mtag { font-size:9.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:2px 6px; border-radius:5px; }
@@ -5874,7 +5880,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .dock-mode-btn:hover{background:var(--green);color:#fff;border-color:var(--green);}
 .dock-home-btn{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:var(--green);background:#fff;border:1.5px solid var(--green);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;margin-right:8px;}
 .dock-home-btn:hover{background:var(--green);color:#fff;border-color:var(--green);}
-.dock-body{flex:1;overflow-y:auto;padding:20px 22px;display:flex;flex-direction:column;gap:14px;transition:padding .42s ease;}
+.dock-body{flex:1;overflow-y:auto;padding:20px 22px;display:flex;flex-direction:column;gap:9px;transition:padding .42s ease;}
 .asst-env.focus .dock-body{padding:22px 16%;}
 .dock-input{flex-shrink:0;padding:14px 22px;border-top:1px solid rgba(91,83,184,.14);display:flex;gap:9px;align-items:center;transition:padding .42s ease;}
 .asst-env.focus .dock-input{padding:14px 16%;}
@@ -5944,7 +5950,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .dsc-label{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
 .dsc-ai{color:var(--violet);}
 .dsc-id{padding-bottom:14px;}
-.dsc-id .ds-name{font-size:17px;font-weight:600;letter-spacing:-0.015em;margin-bottom:8px;}
+.dsc-id-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.dsc-id .ds-name{font-size:17px;font-weight:600;letter-spacing:-0.015em;margin-bottom:0;}
+.dsc-id-divider{height:1px;background:var(--line);margin:12px 0;}
 .dsc-id .ds-status{margin-bottom:0;}
 .dsc-meta{font-size:11.5px;color:var(--ink-3);margin-top:9px;}
 .dsc-health{display:flex;align-items:center;gap:14px;}
@@ -5959,6 +5967,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .dsc-trend{font-size:11.5px;display:flex;align-items:center;gap:5px;margin-top:4px;}
 .dsc-trend.up{color:var(--green);}.dsc-trend.down{color:var(--red);}
 .dsc-caption{font-size:11px;color:var(--ink-3);margin-top:4px;line-height:1.4;}
+.dsc-flagbtn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:13px;padding:9px 12px;border-radius:9px;border:1.5px solid var(--green);background:transparent;color:var(--green);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font);transition:all .15s;}
+.dsc-flagbtn:hover{background:var(--green);color:#fff;}
+.dsc-flagbtn.raise{border-color:var(--amber);color:var(--amber);}
+.dsc-flagbtn.raise:hover{background:var(--amber);color:#fff;}
 .dsc-drv{margin-bottom:10px;}
 .dsc-drv:last-of-type{margin-bottom:0;}
 .dsc-drv-top{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-2);margin-bottom:5px;}
@@ -5999,6 +6011,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .qm-rank{width:22px;height:22px;border-radius:6px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .qm-rank.red{background:var(--red-soft);color:var(--red);}.qm-rank.amber{background:var(--amber-soft);color:var(--amber);}.qm-rank.green{background:var(--green-soft);color:var(--green);}
 .qm-info{flex:1;min-width:0;}
+.qm-nameline{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
 .qm-name{font-size:13.5px;font-weight:600;}
 .qm-reason{font-size:11.5px;color:var(--ink-3);margin-top:1px;}
 .qm-score{font-size:15px;font-weight:700;flex-shrink:0;}
@@ -6300,7 +6313,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .exp-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#e0a24a,#c77a2c);}
 .exp-fill.minor{background:var(--line-2);}
 .conf-note{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-3);margin-top:16px;padding-top:16px;border-top:1px solid var(--line);}
-.rec{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:8px;transition:all .18s;background:var(--surface);box-shadow:var(--shadow-sm);}
+.rec{border:1px solid var(--line);border-radius:10px;padding:12px;transition:all .18s;background:var(--surface);box-shadow:var(--shadow-sm);}
 .rec:hover{border-color:var(--line-2);box-shadow:var(--shadow-md);}
 .rec.top{border-color:var(--accent);background:linear-gradient(180deg,var(--accent-soft),var(--surface) 55%);}
 .rec-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
@@ -6389,10 +6402,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 .toast .tick{width:20px;height:20px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-/* executed recommendation — collapses to a slim confirmed row */
-.rec.executed{padding:0;border-color:transparent;background:transparent;box-shadow:none;overflow:visible;}
-.rec.executed &gt; *{display:none;}
-.rec.executed .rec-done{display:block;}
+/* executed recommendation — stays in the thread as a slim confirmed card */
+.rec.executed{background:var(--surface);border-color:var(--line);box-shadow:var(--shadow-sm);overflow:visible;}
+.rec.executed .rec-why,.rec.executed .rec-stats,.rec.executed .rec-tier,.rec.executed .rec-why-tier,.rec.executed .rec-gate,.rec.executed .rec-actions,.rec.executed .rec-timer-bar,.rec.executed .rec-collapsed-meta{display:none;}
+.rec.executed .rec-head{margin-bottom:0;}
+.rec.executed .rec-rank{background:var(--green-soft);border-color:transparent;color:var(--green);}
+.rec.executed .rec-title{color:var(--ink-2);}
+.rec-done{display:none;}
 .rec-done{display:none;background:var(--green-soft);border:1px solid var(--green-100,#d3f8e9);border-radius:14px;padding:14px 16px;animation:doneIn .35s cubic-bezier(.2,.8,.3,1);}
 @keyframes doneIn{from{opacity:0;transform:scale(.98);}to{opacity:1;transform:none;}}
 .rec-done-top{display:flex;align-items:center;gap:10px;}
@@ -6433,11 +6449,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 
 /* Outgoing message bubble — what the agent sends out (purple) */
 .rec.executed .rec-sent{display:block;}
-.rec-sent{display:none;animation:doneIn .35s cubic-bezier(.2,.8,.3,1);}
-.sent-bubble{background:var(--violet);color:#fff;border-radius:16px 16px 4px 16px;padding:12px 15px;font-size:13px;line-height:1.55;margin-left:auto;max-width:86%;box-shadow:var(--shadow-sm);}
+.rec-sent{display:none;animation:doneIn .35s cubic-bezier(.2,.8,.3,1);margin-top:12px;}
+.sent-bubble{background:var(--violet);color:#fff;border-radius:16px 16px 4px 16px;padding:12px 15px;margin-left:auto;max-width:86%;box-shadow:var(--shadow-sm);}
+.sent-bubble-top{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;}
+.sent-check{width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sent-bubble-sub{font-size:12px;line-height:1.5;color:rgba(255,255,255,.82);margin-top:6px;}
+.sent-view{margin-top:11px;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;}
+.sent-view:hover{background:rgba(255,255,255,.26);}
 .sent-head{display:flex;align-items:center;gap:7px;margin:0 0 8px auto;justify-content:flex-end;font-size:11px;color:var(--ink-3);}
 .sent-head .sent-ic{width:18px;height:18px;border-radius:5px;background:var(--violet-soft);color:var(--violet);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .sent-meta{font-size:11px;color:var(--ink-3);margin:6px 4px 0 auto;text-align:right;display:flex;align-items:center;gap:8px;justify-content:flex-end;}
+/* slim confirmed status left inside the recommendation card */
+.rec-status{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:500;color:var(--green);margin-top:8px;}
+.rec-status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;}
 .sent-meta .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulseAnim 1.6s ease infinite;}
 .sent-undo{background:transparent;border:none;color:var(--ink-2);font-weight:600;font-size:11.5px;cursor:pointer;font-family:var(--font);display:inline-flex;align-items:center;gap:4px;padding:0;}
 .sent-undo:hover{color:var(--ink);text-decoration:underline;}
@@ -7448,16 +7472,7 @@ function renderDockStrip(){
       &lt;/div&gt;`;
   }
 
-  // ----- CARD: identity (name + status) -----
-  const idCard=`
-    &lt;div class=&quot;dsc dsc-id&quot;&gt;
-      &lt;div class=&quot;ds-name&quot;&gt;${m.n}&lt;/div&gt;
-      &lt;div class=&quot;ds-status ${statusCls}&quot;&gt;&lt;span class=&quot;d&quot;&gt;&lt;/span&gt; ${statusLbl}&lt;/div&gt;
-      ${(pf&amp;&amp;pf.meta)?`&lt;div class=&quot;dsc-meta&quot;&gt;${pf.meta}&lt;/div&gt;`:(m.t?`&lt;div class=&quot;dsc-meta&quot;&gt;${m.t}&lt;/div&gt;`:&#x27;&#x27;)}
-      ${m.vis?`&lt;div class=&quot;dsc-vis&quot;&gt;${visBadge(m.vis)}&lt;/div&gt;`:&#x27;&#x27;}
-    &lt;/div&gt;`;
-
-  // ----- CARD: donut score -----
+  // ----- CARD: identity + financial health (merged) -----
   const pct = Math.max(4, Math.min(100, m.s));
   const trendTxt = (pf&amp;&amp;pf.trend&amp;&amp;pf.trend.txt) || &#x27;&#x27;;
   const trendCls = (pf&amp;&amp;pf.trend&amp;&amp;pf.trend.dir===&#x27;up&#x27;)?&#x27;up&#x27;:&#x27;down&#x27;;
@@ -7465,9 +7480,14 @@ function renderDockStrip(){
     ? &#x27;&lt;path d=&quot;M4 17l6-6 4 4 6-8&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&#x27;
     : &#x27;&lt;path d=&quot;M4 7l6 6 4-4 6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&#x27;;
   const ringColor = m.rk===&#x27;red&#x27;?&#x27;var(--red)&#x27;:m.rk===&#x27;green&#x27;?&#x27;var(--green)&#x27;:&#x27;var(--amber)&#x27;;
-  const donutCard=`
-    &lt;div class=&quot;dsc&quot;&gt;
-      &lt;div class=&quot;dsc-label&quot;&gt;Financial health&lt;/div&gt;
+  const idHealthCard=`
+    &lt;div class=&quot;dsc dsc-id&quot;&gt;
+      &lt;div class=&quot;dsc-id-top&quot;&gt;
+        &lt;div class=&quot;ds-name&quot;&gt;${m.n}&lt;/div&gt;
+        ${m.vis?visBadge(m.vis):&#x27;&#x27;}
+      &lt;/div&gt;
+      ${(pf&amp;&amp;pf.meta)?`&lt;div class=&quot;dsc-meta&quot;&gt;${pf.meta}&lt;/div&gt;`:(m.t?`&lt;div class=&quot;dsc-meta&quot;&gt;${m.t}&lt;/div&gt;`:&#x27;&#x27;)}
+      &lt;div class=&quot;dsc-id-divider&quot;&gt;&lt;/div&gt;
       &lt;div class=&quot;dsc-health&quot;&gt;
         &lt;div class=&quot;ds-ring&quot; style=&quot;background:conic-gradient(${ringColor} 0 ${pct}%, var(--surface-2) ${pct}% 100%)&quot;&gt;&lt;b&gt;${m.s}&lt;/b&gt;&lt;span class=&quot;ds-ring-max&quot;&gt;/100&lt;/span&gt;&lt;/div&gt;
         &lt;div class=&quot;dsc-health-meta&quot;&gt;
@@ -7476,6 +7496,8 @@ function renderDockStrip(){
           ${(pf&amp;&amp;pf.ringCaption)?`&lt;div class=&quot;dsc-caption&quot;&gt;${pf.ringCaption}&lt;/div&gt;`:&#x27;&#x27;}
         &lt;/div&gt;
       &lt;/div&gt;
+      ${isWired&amp;&amp;(pf.status===&#x27;atrisk&#x27;||pf.status===&#x27;critical&#x27;)?`&lt;button class=&quot;dsc-flagbtn&quot; onclick=&quot;openFp(&#x27;${pk}&#x27;)&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; Mark as not at risk&lt;/button&gt;`:&#x27;&#x27;}
+      ${isWired&amp;&amp;pf.status===&#x27;healthy&#x27;?`&lt;button class=&quot;dsc-flagbtn raise&quot; onclick=&quot;openRaise(&#x27;${pk}&#x27;)&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; Flag as at risk&lt;/button&gt;`:&#x27;&#x27;}
     &lt;/div&gt;`;
 
   // ----- CARD: why at risk / opportunity -----
@@ -7542,11 +7564,7 @@ function renderDockStrip(){
   const unwiredNote = !isWired ? `&lt;div class=&quot;dsc-mock&quot; style=&quot;padding:0 2px&quot;&gt;Full health detail is wired for David, James &amp;amp; Elena in this prototype.&lt;/div&gt;` : &#x27;&#x27;;
 
   el.innerHTML=`
-    &lt;button class=&quot;ds-back&quot; onclick=&quot;exitAsst()&quot;&gt;‹ Back to home&lt;/button&gt;
-    ${queueBlock}
-    &lt;div class=&quot;ds-eyebrow&quot;&gt;Standing context&lt;/div&gt;
-    ${idCard}
-    ${donutCard}
+    ${idHealthCard}
     ${whyCard}
     ${journeyCard}
     ${trackCard}
@@ -7578,7 +7596,7 @@ function renderDockSurface(){
         const doneCls=ASST_QUEUE.done[i]?&#x27; done&#x27;:&#x27;&#x27;;
         return `&lt;div class=&quot;qmember${doneCls}&quot; onclick=&quot;openFromQueue(${i})&quot;&gt;
           &lt;span class=&quot;qm-rank ${tone}&quot;&gt;${ASST_QUEUE.done[i]?&#x27;✓&#x27;:(i+1)}&lt;/span&gt;
-          &lt;span class=&quot;qm-info&quot;&gt;&lt;span class=&quot;qm-name&quot;&gt;${m.n}&lt;/span&gt;&lt;span class=&quot;qm-reason&quot;&gt;${m.r}&lt;/span&gt;&lt;/span&gt;
+          &lt;span class=&quot;qm-info&quot;&gt;&lt;span class=&quot;qm-nameline&quot;&gt;&lt;span class=&quot;qm-name&quot;&gt;${m.n}&lt;/span&gt;${m.vis?visBadge(m.vis):&#x27;&#x27;}&lt;/span&gt;&lt;span class=&quot;qm-reason&quot;&gt;${m.r}&lt;/span&gt;&lt;/span&gt;
           &lt;span class=&quot;qm-score ${tone}&quot;&gt;${m.s}&lt;/span&gt;
           &lt;span class=&quot;qm-arrow&quot;&gt;›&lt;/span&gt;
         &lt;/div&gt;`;
@@ -7765,6 +7783,29 @@ function cueNow(name){
   setTimeout(()=&gt;{ if(c)c.classList.remove(&#x27;show&#x27;); },1800);
 }
 function exitAsst(){ ASST_FOCUS=false; go(&#x27;home&#x27;); }
+/* After a mark-not-at-risk / flag-at-risk flow, return to the right place.
+   If the assistant screen is active, go back to its queue list (not the old main-stage list). */
+function asstActive(){ const s=document.getElementById(&#x27;screen-asst&#x27;); return !!(s&amp;&amp;s.classList.contains(&#x27;active&#x27;)); }
+function returnAfterFlag(key, fallbackGroup){
+  if(asstActive()){
+    if(ASST_QUEUE){
+      // drop the corrected member from the in-memory queue snapshot
+      const gone = ASST_QUEUE.members.findIndex(m=&gt;(m.profile||m.route)===key);
+      if(gone&gt;-1){ ASST_QUEUE.members.splice(gone,1); ASST_QUEUE.done.splice(gone,1); }
+      if(ASST_QUEUE.members.length){
+        if(ASST_QIDX&gt;=ASST_QUEUE.members.length) ASST_QIDX=ASST_QUEUE.members.length-1;
+        ASST_MEMBER=ASST_QUEUE.members[ASST_QIDX]||null;
+      } else { ASST_MEMBER=null; }
+      ASST_FOCUS=true;              // show the queue list, not a single member
+      renderDockStrip(); renderDockSurface();
+    } else {
+      // no active queue — send them back to the assistant home
+      exitAsst();
+    }
+    return true;
+  }
+  return false;
+}
 function showScreen(name){
   document.querySelectorAll(&#x27;.screen&#x27;).forEach(s=&gt;s.classList.remove(&#x27;active&#x27;));
   var sc=document.getElementById(&#x27;screen-&#x27;+name); if(sc)sc.classList.add(&#x27;active&#x27;);
@@ -8202,16 +8243,33 @@ function approveExec(idx){
   const review=document.getElementById(&#x27;review-&#x27;+idx);
   if(review){ review.style.display=&#x27;none&#x27;; review.innerHTML=&#x27;&#x27;; }
 
-  // build the outgoing (purple) message bubble in the thread
+  // build the outgoing (purple) confirmation bubble in the thread — no message content shown
   const sent=document.getElementById(&#x27;sent-&#x27;+idx);
   if(sent){
+    const actionWord = r.channel===&#x27;Call script&#x27;?&#x27;Call scheduled with&#x27;:r.channel===&#x27;Account credit&#x27;?&#x27;Credit applied for&#x27;:r.channel===&#x27;Account change&#x27;?&#x27;Change sent to&#x27;:&#x27;Message sent to&#x27;;
+    const viewBtn = isMessage
+      ? `&lt;button class=&quot;sent-view&quot; onclick=&quot;openDrawer(&#x27;${CURRENT_PROFILE}&#x27;)&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; View conversation&lt;/button&gt;`
+      : &#x27;&#x27;;
     sent.innerHTML=`
-      &lt;div class=&quot;sent-head&quot;&gt;&lt;span&gt;You approved · to ${p.name.split(&#x27; &#x27;)[0]} · ${now}&lt;/span&gt;&lt;span class=&quot;sent-ic&quot;&gt;&lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;sent-bubble&quot;&gt;${sentText}&lt;/div&gt;
-      &lt;div class=&quot;sent-meta&quot;&gt;&lt;span class=&quot;pulse-dot&quot;&gt;&lt;/span&gt; ${r.channel} · ${verb.toLowerCase()} — ${nextNote} &lt;button class=&quot;sent-undo&quot; onclick=&quot;undoExec(${idx})&quot;&gt;Undo &lt;span class=&quot;undo-timer&quot; id=&quot;undo-${idx}&quot;&gt;10s&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;`;
+      &lt;div class=&quot;sent-bubble&quot;&gt;
+        &lt;div class=&quot;sent-bubble-top&quot;&gt;&lt;span class=&quot;sent-check&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;#fff&quot; stroke-width=&quot;2.6&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; ${actionWord} ${p.name.split(&#x27; &#x27;)[0]}&lt;/div&gt;
+        &lt;div class=&quot;sent-bubble-sub&quot;&gt;${nextNote}&lt;/div&gt;
+        ${viewBtn}
+      &lt;/div&gt;
+      &lt;div class=&quot;sent-meta&quot;&gt;&lt;span class=&quot;pulse-dot&quot;&gt;&lt;/span&gt; ${r.channel} · ${verb.toLowerCase()} · ${now} &lt;button class=&quot;sent-undo&quot; onclick=&quot;undoExec(${idx})&quot;&gt;Undo &lt;span class=&quot;undo-timer&quot; id=&quot;undo-${idx}&quot;&gt;10s&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;`;
   }
   const rec=document.getElementById(&#x27;rec-&#x27;+idx);
-  if(rec)rec.classList.add(&#x27;executed&#x27;);
+  if(rec){
+    // leave a slim confirmed status inside the (still-visible) recommendation card
+    const head=rec.querySelector(&#x27;.rec-head&#x27;);
+    if(head &amp;&amp; !rec.querySelector(&#x27;.rec-status&#x27;)){
+      const st=document.createElement(&#x27;div&#x27;);
+      st.className=&#x27;rec-status&#x27;;
+      st.innerHTML=`&lt;span class=&quot;rec-status-dot&quot;&gt;&lt;/span&gt; Approved by you · ${verb.toLowerCase()} · ${now}`;
+      head.insertAdjacentElement(&#x27;afterend&#x27;, st);
+    }
+    rec.classList.add(&#x27;executed&#x27;);
+  }
 
   // undo countdown (10s window)
   let u=10;
@@ -8246,6 +8304,8 @@ function undoExec(idx){
   if(UNDO_TIMERS[idx]){clearInterval(UNDO_TIMERS[idx]);delete UNDO_TIMERS[idx];}
   const rec=document.getElementById(&#x27;rec-&#x27;+idx);
   if(rec)rec.classList.remove(&#x27;executed&#x27;);
+  const statusEl = rec ? rec.querySelector(&#x27;.rec-status&#x27;) : null;
+  if(statusEl) statusEl.remove();
   const sent=document.getElementById(&#x27;sent-&#x27;+idx);
   if(sent){ sent.innerHTML=&#x27;&#x27;; }
   const actions = rec ? rec.querySelector(&#x27;.rec-actions&#x27;) : null;
@@ -8658,7 +8718,7 @@ function finishFp(key){
   const foot=document.querySelector(&#x27;#fp-modal .modal-foot&#x27;);
   foot.innerHTML=`&lt;button class=&quot;btn-ghost&quot; style=&quot;margin:0&quot; onclick=&quot;closeFp()&quot;&gt;Cancel&lt;/button&gt;&lt;button class=&quot;btn-exec&quot; id=&quot;fp-confirm&quot; style=&quot;background:var(--green);opacity:.45;pointer-events:none&quot; onclick=&quot;confirmFp()&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; Clear flag &amp;amp; log reason&lt;/button&gt;`;
   closeFp();
-  go(&#x27;list&#x27;,CURRENT_GROUP);
+  if(!returnAfterFlag(key, CURRENT_GROUP)) go(&#x27;list&#x27;,CURRENT_GROUP);
 }
 
 /* ==================== FLAG-AS-AT-RISK (reverse correction) ==================== */
@@ -8733,7 +8793,7 @@ function finishRaise(){
   const foot=document.querySelector(&#x27;#raise-modal .modal-foot&#x27;);
   foot.innerHTML=`&lt;button class=&quot;btn-ghost&quot; style=&quot;margin:0&quot; onclick=&quot;closeRaise()&quot;&gt;Cancel&lt;/button&gt;&lt;button class=&quot;btn-exec&quot; id=&quot;raise-confirm&quot; style=&quot;background:var(--amber);opacity:.45;pointer-events:none&quot; onclick=&quot;confirmRaise()&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; Move to Early support &amp;amp; log reason&lt;/button&gt;`;
   closeRaise();
-  go(&#x27;list&#x27;,&#x27;support&#x27;);
+  if(!returnAfterFlag(RAISE_KEY, &#x27;support&#x27;)) go(&#x27;list&#x27;,&#x27;support&#x27;);
 }
 
 /* ==================== FREQUENCY GOVERNOR ==================== */
@@ -8947,8 +9007,6 @@ function goToState(n){
     stopTimer();
     restoreForBrowsing();
     switchWFTab('conversations');
-    document.getElementById('voiceNotif').classList.add('show');
-    toast('📞  Incoming voice transfer from Alex (AI)');
   }
 }
 
@@ -18482,6 +18540,12 @@ function labelForGroup(group){
   if(group==='support') return 'Show members needing early support';
   return 'Show the members who need attention now';
 }
+function visBadgeMini(v){
+  if(v==='loan') return '<span class="vis-badge loan"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>Loan only</span>';
+  if(v==='deposit') return '<span class="vis-badge deposit"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>Deposit only</span>';
+  if(v==='full') return '<span class="vis-badge full"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Full relationship</span>';
+  return '';
+}
 function memberRowHTML(m, group){
   var tone = RANK_COLORS[m.rk] || 'warn';
   var tag = m.needsYou
@@ -18493,7 +18557,7 @@ function memberRowHTML(m, group){
   '<div class="gp-mrow" onclick="'+click+'">'+
     '<div class="gp-mscore gp-'+tone+'"><div class="n">'+m.s+'</div><div class="l">score</div></div>'+
     '<div class="gp-minfo">'+
-      '<div class="gp-mname">'+esc(m.n)+'</div>'+
+      '<div class="gp-mnameline"><div class="gp-mname">'+esc(m.n)+'</div>'+visBadgeMini(m.vis)+'</div>'+
       '<div class="gp-mreason">'+esc(m.r)+'</div>'+
       '<div class="gp-mfoot">'+tag+'<span class="gp-msub">'+esc(m.agentSub||'')+'</span></div>'+
     '</div>'+
