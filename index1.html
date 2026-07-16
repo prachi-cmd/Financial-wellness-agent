@@ -5876,7 +5876,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .dock-logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#6a62c4,#4b44a0);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;font-size:15px;}
 .dock-title{font-size:15px;font-weight:600;}
 .dock-sub{font-size:11.5px;color:var(--ink-3);margin-top:1px;}
-.dock-mode-btn{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--green);background:#fff;border:1.5px solid var(--green);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;}
+.dock-mode-btn{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;}
+.dock-mode-btn:hover{background:var(--surface-2);color:var(--ink);border-color:var(--ink-3);}
+.dock-back-btn{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;}
+.dock-back-btn:hover{background:var(--surface-2);color:var(--ink);border-color:var(--ink-3);}
 .dock-mode-btn:hover{background:var(--green);color:#fff;border-color:var(--green);}
 .dock-home-btn{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:var(--green);background:#fff;border:1.5px solid var(--green);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--font);transition:all .15s;margin-right:8px;}
 .dock-home-btn:hover{background:var(--green);color:#fff;border-color:var(--green);}
@@ -5911,7 +5914,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .dock-summary-ts{margin-left:auto;font-size:11px;color:var(--ink-3);font-weight:400;}
 .dock-summary .strip-rows{display:flex;flex-direction:column;gap:9px;}
 /* strip: back + queue + identity */
-.ds-back{font-size:12px;font-weight:600;color:var(--ink-3);background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:5px;text-align:left;}
+.ds-back{font-size:12px;font-weight:600;color:var(--ink-3);background:none;border:none;cursor:pointer;padding:0;margin-bottom:10px;display:flex;align-items:center;gap:5px;text-align:left;}
 .ds-back:hover{color:var(--ink);}
 .ds-queue{border-radius:11px;padding:10px 12px;}
 .ds-queue.red{background:var(--red-soft);border:1px solid #f2cfcb;}
@@ -6072,12 +6075,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .feed-dot.wait i{background:var(--amber);box-shadow:0 0 0 4px var(--amber-soft);}
 .feed-text{font-size:14px;color:var(--ink);}
 .feed-text .muted{color:var(--ink-2);}
-.feed-wait{margin-top:8px;padding:14px 16px;background:var(--amber-soft);border-radius:14px;display:flex;align-items:center;gap:12px;}
-.feed-wait .txt{font-size:13.5px;color:#8a5518;font-weight:500;flex:1;}
+.feed-wait{margin-top:8px;padding:14px 16px;background:var(--red-soft);border-radius:14px;display:flex;align-items:center;gap:12px;}
+.feed-wait .txt{font-size:13.5px;color:#9a2f2f;font-weight:500;flex:1;}
 
 /* ---------- Insight cards ---------- */
 .section-eyebrow{font-size:12.5px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.06em;margin:0 4px 16px;}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch;}
 .icard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:14px;box-shadow:var(--shadow-sm);transition:all .22s cubic-bezier(.2,.7,.3,1);cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column;}
 .icard:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);border-color:var(--line-2);}
 .icard-glow{position:absolute;top:-30%;right:-20%;width:220px;height:220px;border-radius:50%;filter:blur(55px);opacity:.5;pointer-events:none;}
@@ -6622,7 +6625,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .asst-input input:focus{border-color:var(--accent);}
 .asst-send{width:38px;height:38px;border-radius:11px;border:none;background:var(--accent);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-@media(max-width:1000px){.cards{grid-template-columns:1fr;}}
+@media(max-width:620px){.cards{grid-template-columns:1fr;}}
 @media(max-width:900px){.grid{grid-template-columns:1fr;}}
 
 /* ---------- Impact screen ---------- */
@@ -6854,17 +6857,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
             &lt;span class=&quot;s&quot;&gt;Today, 6:00 – 8:09 AM&lt;/span&gt;
           &lt;/div&gt;
           &lt;div class=&quot;feed&quot;&gt;
-            &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:.05s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;6:00 AM&lt;/span&gt;&lt;span class=&quot;feed-dot done&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;span class=&quot;muted&quot;&gt;Reviewed overnight transactions across your&lt;/span&gt; 612 members.&lt;/span&gt;&lt;/div&gt;
-            &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:.35s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;8:05 AM&lt;/span&gt;&lt;span class=&quot;feed-dot done&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;span class=&quot;muted&quot;&gt;Detected&lt;/span&gt; 12 members &lt;span class=&quot;muted&quot;&gt;with rising financial stress signals.&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:.05s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;8:09 AM&lt;/span&gt;&lt;span class=&quot;feed-dot wait&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;b&gt;Paused for your approval&lt;/b&gt; &lt;span class=&quot;muted&quot;&gt;on 4 cases that involve a payment plan, credit decision, or offer.&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:.35s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;8:08 AM&lt;/span&gt;&lt;span class=&quot;feed-dot done&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;span class=&quot;muted&quot;&gt;Sent&lt;/span&gt; 8 low-risk check-ins &lt;span class=&quot;muted&quot;&gt;and booked&lt;/span&gt; 3 counseling appointments.&lt;/span&gt;&lt;/div&gt;
             &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:.65s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;8:07 AM&lt;/span&gt;&lt;span class=&quot;feed-dot done&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;span class=&quot;muted&quot;&gt;Drafted&lt;/span&gt; personalized check-in messages &lt;span class=&quot;muted&quot;&gt;for each.&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-            &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:.95s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;8:08 AM&lt;/span&gt;&lt;span class=&quot;feed-dot done&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;span class=&quot;muted&quot;&gt;Sent&lt;/span&gt; 8 low-risk check-ins &lt;span class=&quot;muted&quot;&gt;and booked&lt;/span&gt; 3 counseling appointments.&lt;/span&gt;&lt;/div&gt;
-            &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:1.25s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;8:09 AM&lt;/span&gt;&lt;span class=&quot;feed-dot wait&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;b&gt;Paused for your approval&lt;/b&gt; &lt;span class=&quot;muted&quot;&gt;on 4 cases that involve a payment plan, credit decision, or offer.&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:.95s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;8:05 AM&lt;/span&gt;&lt;span class=&quot;feed-dot done&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;span class=&quot;muted&quot;&gt;Detected&lt;/span&gt; 12 members &lt;span class=&quot;muted&quot;&gt;with rising financial stress signals.&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;feed-row anim&quot; style=&quot;animation-delay:1.25s&quot;&gt;&lt;span class=&quot;feed-time&quot;&gt;6:00 AM&lt;/span&gt;&lt;span class=&quot;feed-dot done&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;feed-text&quot;&gt;&lt;span class=&quot;muted&quot;&gt;Reviewed overnight transactions across your&lt;/span&gt; 612 members.&lt;/span&gt;&lt;/div&gt;
           &lt;/div&gt;
           &lt;div style=&quot;padding:0 18px 16px&quot;&gt;
             &lt;div class=&quot;feed-wait anim&quot; style=&quot;animation-delay:1.6s&quot;&gt;
-              &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 8v4l3 2&quot; stroke=&quot;#c77a2c&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;#c77a2c&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;/svg&gt;
+              &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 8v4l3 2&quot; stroke=&quot;#d64545&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;#d64545&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;/svg&gt;
               &lt;span class=&quot;txt&quot;&gt;I stopped short of anything involving money or a commitment — those are yours to approve. &lt;b&gt;Start with the 4 urgent members&lt;/b&gt;, 7 days from delinquency.&lt;/span&gt;
-              &lt;button class=&quot;btn-solid&quot; style=&quot;background:var(--amber);padding:9px 15px;font-size:13px&quot; onclick=&quot;enterQueue(&#x27;critical&#x27;)&quot;&gt;Review 4 →&lt;/button&gt;
+              &lt;button class=&quot;btn-solid urgent&quot; style=&quot;padding:9px 15px;font-size:13px&quot; onclick=&quot;enterQueue(&#x27;critical&#x27;)&quot;&gt;Review 4 →&lt;/button&gt;
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -6953,13 +6956,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
         &lt;!-- assistant working surface --&gt;
         &lt;div class=&quot;dock-surface&quot;&gt;
           &lt;div class=&quot;dock-head&quot;&gt;
-            &lt;div class=&quot;dock-logo&quot;&gt;✦&lt;/div&gt;
-            &lt;div class=&quot;dock-head-txt&quot;&gt;
-              &lt;div class=&quot;dock-title&quot;&gt;AI Assistant&lt;/div&gt;
-              &lt;div class=&quot;dock-sub&quot; id=&quot;dockSub&quot;&gt;Working&lt;/div&gt;
-            &lt;/div&gt;
+            &lt;button class=&quot;dock-back-btn&quot; onclick=&quot;exitAsst()&quot; title=&quot;Back to home&quot;&gt;‹ Back to home&lt;/button&gt;
             &lt;div style=&quot;flex:1&quot;&gt;&lt;/div&gt;
-            &lt;button class=&quot;dock-home-btn&quot; id=&quot;dockHomeBtn&quot; onclick=&quot;exitAsst()&quot; title=&quot;Back to home&quot;&gt;‹ Home&lt;/button&gt;
             &lt;button class=&quot;dock-mode-btn&quot; id=&quot;dockModeBtn&quot; onclick=&quot;toggleAsstMode()&quot;&gt;&lt;span id=&quot;dockModeIcon&quot;&gt;⤢&lt;/span&gt; &lt;span id=&quot;dockModeLabel&quot;&gt;Expand&lt;/span&gt;&lt;/button&gt;
           &lt;/div&gt;
           &lt;div class=&quot;dock-body&quot; id=&quot;dockBody&quot;&gt;&lt;!-- rendered by renderDockSurface() --&gt;&lt;/div&gt;
@@ -7439,6 +7437,19 @@ let ASST_MEMBER=null;          // current MEMBERS entry being worked
 // resolve the full PROFILES key for a MEMBERS entry (falls back to its route)
 function profKeyFor(m){ return (m.profile &amp;&amp; PROFILES[m.profile]) ? m.profile : (m.route||&#x27;david&#x27;); }
 
+// When a member borrows another member's wired profile (via route), the profile text
+// still names the original person. Swap the profile's first name for the actual member's
+// first name so the standing context and thread read as the person on screen.
+function personalize(text, profileName, memberName){
+  if(!text || !memberName || !profileName) return text;
+  const pf = profileName.split(&#x27; &#x27;)[0];
+  const mf = memberName.split(&#x27; &#x27;)[0];
+  if(pf===mf) return text;
+  return text.split(pf).join(mf);
+}
+// resolve the display name for the current assistant member (prefers the MEMBERS entry name)
+function displayNameFor(m){ return (m &amp;&amp; m.n) || (PROFILES[profKeyFor(m)] &amp;&amp; PROFILES[profKeyFor(m)].name) || &#x27;Member&#x27;; }
+
 function riskTone(rk){ return rk===&#x27;red&#x27;?&#x27;red&#x27;:rk===&#x27;green&#x27;?&#x27;green&#x27;:&#x27;amber&#x27;; }
 function ringGradFor(rk){ return rk===&#x27;red&#x27;?&#x27;#e08a8a,#d64545&#x27;:rk===&#x27;green&#x27;?&#x27;#7fce9f,#2f8a5b&#x27;:&#x27;#e0a24a,#c77a2c&#x27;; }
 
@@ -7516,6 +7527,7 @@ function renderDockStrip(){
       &lt;div class=&quot;dsc-label&quot;&gt;${(pf&amp;&amp;pf.expTitle)||(&#x27;Why &#x27;+(m.rk===&#x27;green&#x27;?&#x27;the opportunity&#x27;:&#x27;at risk&#x27;))}&lt;/div&gt;
       ${drivers}
       ${(pf&amp;&amp;pf.conf)?`&lt;div class=&quot;dsc-conf&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 16v-4m0-4h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt; ${pf.conf}&lt;/div&gt;`:&#x27;&#x27;}
+      ${(m.vis===&#x27;loan&#x27; &amp;&amp; pf &amp;&amp; pf.blind)?`&lt;div class=&quot;blind-note&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 9v4m0 3h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L14 3.9a2 2 0 00-3.4 0z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;div&gt;&lt;span&gt;${personalize(pf.blind, pf.name, m.n)}&lt;/span&gt;${pf.blindCta!==false?`&lt;button class=&quot;blind-cta&quot; onclick=&quot;scrollToRecs()&quot;&gt;Close the gap — invite ${m.n.split(&#x27; &#x27;)[0]} to link an account &lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 12h14m-6-6l6 6-6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;`:&#x27;&#x27;}&lt;/div&gt;&lt;/div&gt;`:&#x27;&#x27;}
     &lt;/div&gt;`;
 
   // ----- CARD: AI summary -----
@@ -7589,7 +7601,7 @@ function renderDockSurface(){
     nextBtn.classList.remove(&#x27;show&#x27;);
     // Focus body: if a queue is active, show the ranked cards; else broad ask
     if(ASST_QUEUE){
-      sub.textContent=&#x27;Focus · &#x27;+ASST_QUEUE.label.toLowerCase();
+      if(sub) sub.textContent=&#x27;Focus · &#x27;+ASST_QUEUE.label.toLowerCase();
       ph.textContent=&#x27;Ask about these &#x27;+ASST_QUEUE.members.length+&#x27;…&#x27;;
       const cards=ASST_QUEUE.members.map((m,i)=&gt;{
         const tone=riskTone(m.rk);
@@ -7611,7 +7623,7 @@ function renderDockSurface(){
         &lt;div class=&quot;fq-intro-eyebrow&quot;&gt;The queue&lt;/div&gt;
         &lt;div style=&quot;display:flex;flex-direction:column;gap:8px&quot;&gt;${cards}&lt;/div&gt;`;
     } else {
-      sub.textContent=&#x27;Focus · your whole book&#x27;;
+      if(sub) sub.textContent=&#x27;Focus · your whole book&#x27;;
       ph.textContent=&#x27;Ask anything…&#x27;;
       body.innerHTML=`
         &lt;div class=&quot;dock-cue&quot; id=&quot;dockCue&quot;&gt;&lt;/div&gt;
@@ -7635,22 +7647,23 @@ function renderDockSurface(){
   modeIcon.textContent=&#x27;⤢&#x27;; modeLabel.textContent = ASST_QUEUE ? (&#x27;See all &#x27;+ASST_QUEUE.members.length) : &#x27;Expand&#x27;;
   const m=ASST_MEMBER; const key=profKeyFor(m);
   CURRENT_PROFILE=key;
-  sub.textContent = &#x27;Working · &#x27;+m.n + (ASST_QUEUE?(&#x27; · &#x27;+(ASST_QIDX+1)+&#x27; of &#x27;+ASST_QUEUE.members.length):&#x27;&#x27;);
+  if(sub) sub.textContent = &#x27;Working · &#x27;+m.n + (ASST_QUEUE?(&#x27; · &#x27;+(ASST_QIDX+1)+&#x27; of &#x27;+ASST_QUEUE.members.length):&#x27;&#x27;);
   ph.textContent=&#x27;Ask anything about &#x27;+m.n.split(&#x27; &#x27;)[0]+&#x27;…&#x27;;
   if(ASST_QUEUE){ nextBtn.classList.add(&#x27;show&#x27;); nextBtn.innerHTML = ASST_QIDX&lt;ASST_QUEUE.members.length-1?&#x27;✓ Done · next member ›&#x27;:&#x27;✓ Done · finish queue&#x27;; }
   else nextBtn.classList.remove(&#x27;show&#x27;);
 
-  body.innerHTML = `&lt;div class=&quot;dock-cue&quot; id=&quot;dockCue&quot;&gt;&lt;/div&gt;` + buildSummaryHTML(key) + buildRecsHTML(key) + buildAskHTML(m);
+  body.innerHTML = `&lt;div class=&quot;dock-cue&quot; id=&quot;dockCue&quot;&gt;&lt;/div&gt;` + buildSummaryHTML(key, m.n) + buildRecsHTML(key, m.n) + buildAskHTML(m);
   startTimersForKey(key);
 }
 
 /* build the AI summary block for the conversation thread — now also folds in
    the Here's-what-Ive-done activity as one white message bubble */
-function buildSummaryHTML(key){
+function buildSummaryHTML(key, memberName){
   const p=PROFILES[key]; if(!p) return &#x27;&#x27;;
-  const fn=p.name.split(&#x27; &#x27;)[0];
+  const fn=(memberName||p.name).split(&#x27; &#x27;)[0];
+  const summaryText = personalize(p.summary, p.name, memberName||p.name);
   const summaryBlock = p.summary ? `
-    &lt;p class=&quot;dock-summary-body&quot;&gt;${p.summary}&lt;/p&gt;
+    &lt;p class=&quot;dock-summary-body&quot;&gt;${summaryText}&lt;/p&gt;
     ${p.prob?`&lt;div class=&quot;dock-summary-prob&quot;&gt;&lt;span&gt;Stress probability&lt;/span&gt;&lt;span class=&quot;dock-summary-prob-v ${p.probClass||&#x27;&#x27;}&quot;&gt;${p.prob}&lt;/span&gt;&lt;/div&gt;`:&#x27;&#x27;}` : &#x27;&#x27;;
   const doneRows = agentStripRows(key, fn);
   const doneBlock = doneRows ? `
@@ -7696,8 +7709,9 @@ function buildAgentStripHTML(key, displayName){
 }
 
 /* build the recommendations list HTML for a key (open decisions) */
-function buildRecsHTML(key){
+function buildRecsHTML(key, memberName){
   const p=PROFILES[key]; if(!p) return &#x27;&#x27;;
+  const mName = memberName || p.name;
   const monitorOn=!isAutonomous(key);
   const tierBadge={2:&#x27;&lt;span class=&quot;rec-tier tier2&quot;&gt;⏱ Tier 2 · Acts unless vetoed&lt;/span&gt;&#x27;,3:&#x27;&lt;span class=&quot;rec-tier tier3&quot;&gt;✓ Tier 3 · Your approval&lt;/span&gt;&#x27;};
   const open=[];
@@ -7709,11 +7723,13 @@ function buildRecsHTML(key){
     let actionBlock=&#x27;&#x27;;
     if(eff===2){ actionBlock=`&lt;div class=&quot;rec-timer-bar&quot; id=&quot;timer-${idx}&quot;&gt;&lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 8v4l3 2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt; Acting in &lt;b id=&quot;cd-${idx}&quot;&gt;30:00&lt;/b&gt; — no action needed &lt;button class=&quot;veto&quot; onclick=&quot;event.stopPropagation();vetoTimer(${idx})&quot;&gt;Hold &amp;amp; review&lt;/button&gt;&lt;/div&gt;`; }
     else { actionBlock=`&lt;div class=&quot;rec-actions&quot;&gt;&lt;button class=&quot;btn-exec&quot; onclick=&quot;event.stopPropagation();openExec(${idx})&quot;&gt;${r.top?&#x27;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 12h14m-6-6l6 6-6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; &#x27;:&#x27;&#x27;}Review &amp;amp; approve&lt;/button&gt;&lt;button class=&quot;btn-ghost&quot; onclick=&quot;event.stopPropagation();openExec(${idx},true)&quot;&gt;Edit&lt;/button&gt;&lt;/div&gt;`; }
-    const effWhy=(monitorOn&amp;&amp;r.tier!==3)?&#x27;Monitor-only is on for this member — routed to you for approval&#x27;:r.tierWhy;
+    const effWhy=personalize((monitorOn&amp;&amp;r.tier!==3)?&#x27;Monitor-only is on for this member — routed to you for approval&#x27;:r.tierWhy, p.name, mName);
     const gateBadge=r.gate?&#x27;&lt;span class=&quot;rec-gate&quot;&gt;✓ Passes member-benefit gate&lt;/span&gt;&#x27;:&#x27;&#x27;;
     const collapsed=!r.top;
+    const rTitle=personalize(r.title, p.name, mName);
+    const rWhy=personalize(r.why, p.name, mName);
     const collapsedMeta=`&lt;span class=&quot;rec-collapsed-meta&quot;&gt;${r.out} &lt;span class=&quot;rec-expand-hint&quot;&gt;&lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M6 9l6 6 6-6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;`;
-    return `&lt;div class=&quot;rec ${r.top?&#x27;top&#x27;:&#x27;&#x27;} ${collapsed?&#x27;collapsed&#x27;:&#x27;&#x27;}&quot; id=&quot;rec-${idx}&quot; ${collapsed?`onclick=&quot;this.classList.remove(&#x27;collapsed&#x27;)&quot;`:&#x27;&#x27;}&gt;&lt;div class=&quot;rec-head&quot;&gt;&lt;span class=&quot;rec-rank&quot;&gt;${r.rank}&lt;/span&gt;&lt;span class=&quot;rec-title&quot;&gt;${r.title}&lt;/span&gt;${collapsedMeta}&lt;/div&gt;${tierBadge[eff]||&#x27;&#x27;}${gateBadge}&lt;div class=&quot;rec-why-tier&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 16v-4m0-4h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt; ${effWhy}&lt;/div&gt;&lt;p class=&quot;rec-why&quot;&gt;${r.why}&lt;/p&gt;&lt;div class=&quot;rec-stats&quot;&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Confidence&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;${r.conf}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Expected outcome&lt;/div&gt;&lt;div class=&quot;v good&quot;&gt;${r.out}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;${actionBlock}&lt;div class=&quot;rec-review&quot; id=&quot;review-${idx}&quot; style=&quot;display:none&quot;&gt;&lt;/div&gt;&lt;div class=&quot;rec-sent&quot; id=&quot;sent-${idx}&quot;&gt;&lt;/div&gt;&lt;div class=&quot;rec-done&quot; id=&quot;done-${idx}&quot;&gt;&lt;/div&gt;&lt;/div&gt;`;
+    return `&lt;div class=&quot;rec ${r.top?&#x27;top&#x27;:&#x27;&#x27;} ${collapsed?&#x27;collapsed&#x27;:&#x27;&#x27;}&quot; id=&quot;rec-${idx}&quot; ${collapsed?`onclick=&quot;this.classList.remove(&#x27;collapsed&#x27;)&quot;`:&#x27;&#x27;}&gt;&lt;div class=&quot;rec-head&quot;&gt;&lt;span class=&quot;rec-rank&quot;&gt;${r.rank}&lt;/span&gt;&lt;span class=&quot;rec-title&quot;&gt;${rTitle}&lt;/span&gt;${collapsedMeta}&lt;/div&gt;${tierBadge[eff]||&#x27;&#x27;}${gateBadge}&lt;div class=&quot;rec-why-tier&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 16v-4m0-4h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt; ${effWhy}&lt;/div&gt;&lt;p class=&quot;rec-why&quot;&gt;${rWhy}&lt;/p&gt;&lt;div class=&quot;rec-stats&quot;&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Confidence&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;${r.conf}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rec-stat&quot;&gt;&lt;div class=&quot;k&quot;&gt;Expected outcome&lt;/div&gt;&lt;div class=&quot;v good&quot;&gt;${r.out}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;${actionBlock}&lt;div class=&quot;rec-review&quot; id=&quot;review-${idx}&quot; style=&quot;display:none&quot;&gt;&lt;/div&gt;&lt;div class=&quot;rec-sent&quot; id=&quot;sent-${idx}&quot;&gt;&lt;/div&gt;&lt;div class=&quot;rec-done&quot; id=&quot;done-${idx}&quot;&gt;&lt;/div&gt;&lt;/div&gt;`;
   }).join(&#x27;&#x27;) || &#x27;&lt;div style=&quot;text-align:center;color:var(--ink-3);font-size:13.5px;padding:20px 0&quot;&gt;Nothing needs your approval right now — the agent has it handled.&lt;/div&gt;&#x27;;
   return `&lt;div class=&quot;ai-section-label rec-list-anchor&quot; id=&quot;dockRecsLabel&quot; style=&quot;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);margin:4px 2px&quot;&gt;Recommended actions&lt;/div&gt;${recRows}`;
 }
@@ -7872,8 +7888,8 @@ const PROFILES={
     conf:&#x27;Confidence: 61% · limited visibility — loan + bureau signals only&#x27;,
     recs:[
       {rank:1,top:true,title:&#x27;Invite James to link his external account&#x27;,tier:3,tierWhy:&#x27;Member-permissioned data request — needs your approval&#x27;,compliance:&#x27;servicing&#x27;,why:&#x27;We’re flying on loan + bureau signals only. One consented link turns this 61% guess into a full cash-flow picture — and starts the path to making us his primary institution.&#x27;,conf:&#x27;Fills the blind spot&#x27;,out:&#x27;61% → ~80% visibility&#x27;,
-        channel:&#x27;Secure link invite&#x27;,channelNote:&#x27;They choose what to share · can disconnect anytime&#x27;,
-        preview:&#x27;&lt;b&gt;Secure account-link invite (SMS + in-app):&lt;/b&gt;&lt;br&gt;&lt;br&gt;&quot;Hi James — to give you the most helpful options, Coastal can securely connect to your main bank account (read-only, you stay in control, and you can disconnect anytime). It helps us spot the right way to support you. Tap to review what’s shared.&quot;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;color:var(--ink-3);font-size:12px&quot;&gt;Powered by open banking (Plaid / MX / Finicity). No credentials are seen or stored by Coastal.&lt;/span&gt;&#x27;,
+        channel:&#x27;Secure link invite&#x27;,channelNote:&#x27;&#x27;,
+        preview:&#x27;&lt;b&gt;Secure account-link invite (SMS + in-app):&lt;/b&gt;&lt;br&gt;&lt;br&gt;&quot;Hi James — to give you the most helpful options, Coastal can securely connect to your main bank account (read-only, you stay in control, and you can disconnect anytime). It helps us spot the right way to support you. Tap to review what’s shared.&quot;&#x27;,
         sentMsg:&#x27;Secure link invite sent to James. If he connects, I’ll refresh his financial picture and re-score with full cash-flow visibility.&#x27;},
       {rank:2,top:false,title:&#x27;RM phone call this evening&#x27;,tier:3,tierWhy:&#x27;Critical + human touch — agent won’t call on its own&#x27;,compliance:&#x27;servicing&#x27;,why:&#x27;He’s recovered before, but only after a human call. Evening reaches him.&#x27;,conf:&#x27;High&#x27;,out:&#x27;Best recovery odds&#x27;,
         channel:&#x27;Call script&#x27;,channelNote:&#x27;The agent prepares — you make the call&#x27;,
@@ -8172,6 +8188,8 @@ function openExec(idx,focusEdit){
   EXEC_IDX=idx;
   const p=PROFILES[CURRENT_PROFILE];
   const r=p.recs[idx];
+  const mName=(ASST_MEMBER &amp;&amp; ASST_MEMBER.n) || p.name;
+  const mFirst=mName.split(&#x27; &#x27;)[0];
   const rec=document.getElementById(&#x27;rec-&#x27;+idx);
   if(rec) rec.classList.remove(&#x27;collapsed&#x27;);
   const review=document.getElementById(&#x27;review-&#x27;+idx);
@@ -8189,13 +8207,13 @@ function openExec(idx,focusEdit){
   const freqBlock = (isOutbound &amp;&amp; recentlyContacted(lc)) ? `
       &lt;div class=&quot;freq-warn&quot;&gt;
         &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 9v4m0 3h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L14 3.9a2 2 0 00-3.4 0z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;
-        &lt;span&gt;&lt;b&gt;${p.name.split(&#x27; &#x27;)[0]} was already reached ${lc.toLowerCase()}.&lt;/b&gt; Another message this soon risks feeling like over-contact. Confirm you want to send anyway.&lt;/span&gt;
+        &lt;span&gt;&lt;b&gt;${mFirst} was already reached ${lc.toLowerCase()}.&lt;/b&gt; Another message this soon risks feeling like over-contact. Confirm you want to send anyway.&lt;/span&gt;
       &lt;/div&gt;
       &lt;div class=&quot;freq-ack&quot; id=&quot;freq-ack&quot; onclick=&quot;toggleFreqAck(this)&quot;&gt;&lt;span class=&quot;fa-box&quot;&gt;&lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;#fff&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; Send anyway — I&#x27;ve considered the timing&lt;/div&gt;` : &#x27;&#x27;;
   const blockedAttr = freqBlock ? &#x27; blocked&#x27; : &#x27;&#x27;;
   review.innerHTML = `
     &lt;div class=&quot;rec-review-label&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M4 20h4L18 10l-4-4L4 16v4z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt; Agent-drafted · click to edit&lt;/div&gt;
-    &lt;div class=&quot;rec-review-preview&quot; id=&quot;preview-${idx}&quot; contenteditable=&quot;true&quot;&gt;${r.preview}&lt;/div&gt;
+    &lt;div class=&quot;rec-review-preview&quot; id=&quot;preview-${idx}&quot; contenteditable=&quot;true&quot;&gt;${personalize(r.preview, p.name, mName)}&lt;/div&gt;
     &lt;div class=&quot;rec-review-channel&quot;&gt;&lt;span class=&quot;pill&quot;&gt;${r.channel}&lt;/span&gt; ${r.channelNote} &amp;nbsp;${compTag}&lt;/div&gt;
     ${freqBlock}
     &lt;div class=&quot;rec-review-foot&quot;&gt;
@@ -8221,17 +8239,19 @@ function approveExec(idx){
   const sendBtn=document.getElementById(&#x27;send-&#x27;+idx);
   if(sendBtn&amp;&amp;sendBtn.classList.contains(&#x27;blocked&#x27;)){showToast(&#x27;This member was contacted recently — confirm the timing to send&#x27;);return;}
   const p=PROFILES[CURRENT_PROFILE];const r=p.recs[idx];
+  const mName=(ASST_MEMBER &amp;&amp; ASST_MEMBER.n) || p.name;
+  const mFirst=mName.split(&#x27; &#x27;)[0];
   const now=new Date().toLocaleTimeString([], {hour:&#x27;numeric&#x27;,minute:&#x27;2-digit&#x27;});
   const verb = r.channel===&#x27;Call script&#x27;?&#x27;Scheduled&#x27;:r.channel===&#x27;Account credit&#x27;?&#x27;Applied&#x27;:r.channel===&#x27;Account change&#x27;?&#x27;Sent for confirmation&#x27;:&#x27;Sent&#x27;;
   const nextNote = {
-    &#x27;SMS&#x27;:&#x27;Watching for a reply — I’ll flag it the moment &#x27;+p.name.split(&#x27; &#x27;)[0]+&#x27; responds.&#x27;,
+    &#x27;SMS&#x27;:&#x27;Watching for a reply — I’ll flag it the moment &#x27;+mFirst+&#x27; responds.&#x27;,
     &#x27;Email invite&#x27;:&#x27;Booking link is live — I’ll add the session to your calendar once they pick a time.&#x27;,
     &#x27;Account change&#x27;:&#x27;Waiting on the member to confirm — nothing changes until they accept.&#x27;,
     &#x27;Call script&#x27;:&#x27;On your list for this evening — I’ll log the outcome after the call.&#x27;,
     &#x27;Plan offer&#x27;:&#x27;Sent for acceptance — I’ll notify you when they respond.&#x27;,
     &#x27;Account credit&#x27;:&#x27;Credit applied — the member has been notified.&#x27;,
     &#x27;Offer&#x27;:&#x27;Delivered — I’ll watch for interest and route any reply to you.&#x27;,
-    &#x27;Warm intro&#x27;:&#x27;Marcus has the context — he’ll follow up this week.&#x27;,
+    &#x27;Warm intro&#x27;:mFirst+&#x27; has the context — they’ll follow up this week.&#x27;,
     &#x27;Secure link invite&#x27;:&#x27;Invite sent. The moment they connect, I’ll re-score with full cash-flow visibility.&#x27;
   }[r.channel] || &#x27;Done — I’ll keep an eye on it.&#x27;;
   const isMessage = r.channel!==&#x27;Call script&#x27; &amp;&amp; r.channel!==&#x27;Account credit&#x27; &amp;&amp; r.channel!==&#x27;Account change&#x27;;
@@ -8252,7 +8272,7 @@ function approveExec(idx){
       : &#x27;&#x27;;
     sent.innerHTML=`
       &lt;div class=&quot;sent-bubble&quot;&gt;
-        &lt;div class=&quot;sent-bubble-top&quot;&gt;&lt;span class=&quot;sent-check&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;#fff&quot; stroke-width=&quot;2.6&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; ${actionWord} ${p.name.split(&#x27; &#x27;)[0]}&lt;/div&gt;
+        &lt;div class=&quot;sent-bubble-top&quot;&gt;&lt;span class=&quot;sent-check&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M5 13l4 4L19 7&quot; stroke=&quot;#fff&quot; stroke-width=&quot;2.6&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; ${actionWord} ${mFirst}&lt;/div&gt;
         &lt;div class=&quot;sent-bubble-sub&quot;&gt;${nextNote}&lt;/div&gt;
         ${viewBtn}
       &lt;/div&gt;
@@ -18281,8 +18301,8 @@ const PROFILES={
     conf:'Confidence: 61% · limited visibility — loan + bureau signals only',
     recs:[
       {rank:1,top:true,title:'Invite James to link his external account',tier:3,tierWhy:'Member-permissioned data request — needs your approval',compliance:'servicing',why:'We’re flying on loan + bureau signals only. One consented link turns this 61% guess into a full cash-flow picture — and starts the path to making us his primary institution.',conf:'Fills the blind spot',out:'61% → ~80% visibility',
-        channel:'Secure link invite',channelNote:'They choose what to share · can disconnect anytime',
-        preview:'<b>Secure account-link invite (SMS + in-app):</b><br><br>"Hi James — to give you the most helpful options, Coastal can securely connect to your main bank account (read-only, you stay in control, and you can disconnect anytime). It helps us spot the right way to support you. Tap to review what’s shared."<br><br><span style="color:var(--ink-3);font-size:12px">Powered by open banking (Plaid / MX / Finicity). No credentials are seen or stored by Coastal.</span>',
+        channel:'Secure link invite',channelNote:'',
+        preview:'<b>Secure account-link invite (SMS + in-app):</b><br><br>"Hi James — to give you the most helpful options, Coastal can securely connect to your main bank account (read-only, you stay in control, and you can disconnect anytime). It helps us spot the right way to support you. Tap to review what’s shared."',
         sentMsg:'Secure link invite sent to James. If he connects, I’ll refresh his financial picture and re-score with full cash-flow visibility.'},
       {rank:2,top:false,title:'RM phone call this evening',tier:3,tierWhy:'Critical + human touch — agent won’t call on its own',compliance:'servicing',why:'He’s recovered before, but only after a human call. Evening reaches him.',conf:'High',out:'Best recovery odds',
         channel:'Call script',channelNote:'The agent prepares — you make the call',
