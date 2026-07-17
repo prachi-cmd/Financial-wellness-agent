@@ -862,15 +862,15 @@ body{font-family:var(--f);background:var(--bg);color:var(--t1);display:flex;flex
   transition:width .3s cubic-bezier(.4,0,.2,1);
   position:relative;z-index:10;
 }
-.sidebar.expanded{ width:220px; }
+.sidebar.expanded{ width:248px; }
 .nav-list{flex:1;overflow-y:auto;overflow-x:hidden;padding:8px 0;display:flex;flex-direction:column;gap:1px;}
 .nav-list::-webkit-scrollbar{display:none;}
 .nav-item{
-  display:flex;align-items:center;gap:10px;
-  padding:0 7px;height:36px;border-radius:8px;margin:0 5px;
+  display:flex;align-items:center;gap:11px;
+  padding:0 9px;height:42px;border-radius:10px;margin:0 6px;
   cursor:pointer;border:none;background:transparent;
-  color:rgba(255,255,255,.55);font-family:var(--f);font-size:11.5px;font-weight:500;
-  white-space:nowrap;overflow:hidden;text-align:left;
+  color:rgba(255,255,255,.6);font-family:var(--f);font-size:13.5px;font-weight:500;
+  white-space:nowrap;overflow:hidden;text-align:left;letter-spacing:-.01em;
   transition:background .12s,color .12s;flex-shrink:0;
 }
 .nav-item:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);}
@@ -887,24 +887,24 @@ body{font-family:var(--f);background:var(--bg);color:var(--t1);display:flex;flex
 .nav-item.active .nav-chevron{color:#fff;}
 .nav-item.collapsed .nav-chevron{transform:rotate(-90deg);}
 .nav-sub{
-  display:flex;flex-direction:column;gap:2px;
-  margin:4px 5px 4px 22px;padding-left:11px;
-  border-left:1.5px solid rgba(255,255,255,.18);
-  overflow:hidden;
+  display:flex;flex-direction:column;gap:6px;
+  margin:10px 8px 16px 18px;padding:4px 0 4px 12px;
+  border-left:2px solid rgba(255,255,255,.16);
+  overflow:visible;
 }
 .nav-sub.collapsed{display:none;}
 /* Hidden when the sidebar is collapsed to icons-only */
 .sidebar:not(.expanded) .nav-sub{display:none;}
 .nav-subitem{
-  display:flex;align-items:center;height:34px;padding:0 12px;
-  border-radius:8px;cursor:pointer;border:none;background:transparent;
-  color:rgba(255,255,255,.5);font-family:var(--f);font-size:12px;font-weight:500;
-  white-space:nowrap;overflow:hidden;text-align:left;
-  transition:background .12s,color .12s;
+  display:flex;align-items:center;height:42px;padding:0 14px;
+  border-radius:11px;cursor:pointer;border:none;background:transparent;
+  color:rgba(255,255,255,.6);font-family:var(--f);font-size:13.5px;font-weight:500;
+  white-space:nowrap;overflow:hidden;text-align:left;letter-spacing:-.01em;
+  transition:background .14s,color .14s;
 }
-.nav-subitem:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.75);}
-.nav-subitem.active{background:rgba(255,255,255,.14);color:#fff;font-weight:700;}
-.nav-sublabel{flex:1;min-width:0;}
+.nav-subitem:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);}
+.nav-subitem.active{background:rgba(255,255,255,.16);color:#fff;font-weight:700;}
+.nav-sublabel{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;}
 .sidebar-foot{padding:8px 0 10px;border-top:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;gap:6px;}
 .nav-help{display:flex;align-items:center;gap:10px;padding:0 7px;height:36px;border-radius:8px;margin:0 5px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.55);font-family:var(--f);font-size:11.5px;white-space:nowrap;overflow:hidden;transition:background .12s;width:calc(100% - 10px);flex-shrink:0;}
 .nav-help:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);}
@@ -3810,7 +3810,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--t1);display:flex;flex
 <div class="body">
 
   <!-- SIDEBAR NAV -->
-  <div class="sidebar" id="sidebar">
+  <div class="sidebar expanded" id="sidebar">
     <div class="nav-list">
 
       <button class="nav-item" onclick="toggleNavSub(this)">
@@ -10290,6 +10290,13 @@ goToState(2);
 function revealChrome(){
   var shell=document.getElementById('appShell');
   if(shell) shell.classList.remove('chrome-hidden');
+  // default the left nav to its expanded state on sign-in
+  var sb=document.getElementById('sidebar');
+  if(sb) sb.classList.add('expanded');
+  var sub=document.getElementById('conversationsSub');
+  if(sub) sub.classList.remove('collapsed');
+  var conv=document.querySelector('.nav-item');
+  if(conv) conv.classList.remove('collapsed');
 }
 // Guardian iframe tells us login succeeded
 window.addEventListener('message',function(e){
