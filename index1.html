@@ -3772,13 +3772,31 @@ body{font-family:var(--f);background:var(--bg);color:var(--t1);display:flex;flex
 .aiws-am-name{font-size:10px;font-weight:500;color:var(--t2);}
 .aiws-am-num{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--t3);}
 .aiws-am-bal{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;color:var(--t1);}
+
+/* ── LOGIN CHROME GATING + PROFILE MENU ── */
+#appShell.chrome-hidden .topbar,#appShell.chrome-hidden .sidebar{display:none !important;}
+.profile-wrap{position:relative;}
+.profile-btn{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;font-family:var(--f);background:linear-gradient(145deg,#6a62c4,#4b44a0);transition:box-shadow .12s,transform .06s;}
+.profile-btn:hover{box-shadow:0 2px 8px rgba(75,68,160,.35);}
+.profile-btn:active{transform:scale(.96);}
+.profile-menu{position:absolute;top:36px;right:0;min-width:210px;background:var(--s0);border:1px solid var(--border);border-radius:10px;box-shadow:var(--sh3);padding:6px;z-index:100;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .16s,transform .16s;}
+.profile-menu.open{opacity:1;transform:translateY(0);pointer-events:auto;}
+.profile-head{display:flex;align-items:center;gap:10px;padding:9px 10px 11px;border-bottom:1px solid var(--border);margin-bottom:5px;}
+.profile-head .pav{width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,#6a62c4,#4b44a0);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;}
+.profile-head .pn{font-size:12.5px;font-weight:600;color:var(--t1);letter-spacing:-.01em;}
+.profile-head .pr{font-size:11px;color:var(--t3);margin-top:1px;}
+.profile-item{display:flex;align-items:center;gap:9px;width:100%;padding:8px 10px;border:none;background:none;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:12.5px;color:var(--t2);text-align:left;transition:background .12s,color .12s;}
+.profile-item:hover{background:var(--s2);color:var(--t1);}
+.profile-item.danger{color:var(--red);}
+.profile-item.danger:hover{background:var(--rs);}
+.profile-item svg{flex-shrink:0;}
 </style>
 <!-- ══ EMILY AI ASSISTANT — SCOPED STYLES (injected) ══ -->
 </head>
 <body>
 
 <!-- MAIN CONTENT (full height minus scenario bar) -->
-<div style="display:flex;flex-direction:column;height:100vh;overflow:hidden;">
+<div id="appShell" class="chrome-hidden" style="display:flex;flex-direction:column;height:100vh;overflow:hidden;">
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="logo">E</div><div class="vd"></div>
@@ -3786,7 +3804,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--t1);display:flex;flex
   <div class="qc">Accounts <b>3</b> 💬2 🎥1</div>
   <div class="qc">Auto Loans <b>3</b></div>
   <div class="qc">Customer Care <b>3</b></div>
-  <div class="ml"><div class="chip green"><div class="cdot green"></div>Available</div><div class="ib">⚙</div><div class="ib">👤</div></div>
+  <div class="ml"><div class="chip green"><div class="cdot green"></div>Available</div><div class="ib">⚙</div><div class="profile-wrap"><button class="profile-btn" id="profileBtn" onclick="toggleProfileMenu(event)" title="Account">CR</button><div class="profile-menu" id="profileMenu"><div class="profile-head"><div class="pav">CR</div><div><div class="pn">Cindy Reyes</div><div class="pr">Relationship Manager · Coastal CU</div></div></div><button class="profile-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> My profile</button><button class="profile-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M10.3 3.9a1.9 1.9 0 013.4 0l.5 1a1.9 1.9 0 002.3 1l1-.3a1.9 1.9 0 012 3.3l-.7.8a1.9 1.9 0 000 2.6l.7.8a1.9 1.9 0 01-2 3.3l-1-.3a1.9 1.9 0 00-2.3 1l-.5 1a1.9 1.9 0 01-3.4 0l-.5-1a1.9 1.9 0 00-2.3-1l-1 .3a1.9 1.9 0 01-2-3.3l.7-.8a1.9 1.9 0 000-2.6l-.7-.8a1.9 1.9 0 012-3.3l1 .3a1.9 1.9 0 002.3-1l.5-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.5"/></svg> Settings</button><button class="profile-item danger" onclick="guardianLogout()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M15 4h3a2 2 0 012 2v12a2 2 0 01-2 2h-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M10 8l-4 4 4 4M6 12h11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Log out</button></div></div></div>
 </div>
 
 <div class="body">
@@ -4068,10 +4086,10 @@ body{font-family:var(--f);background:var(--bg);color:var(--t1);display:flex;flex
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-feature-settings:&#x27;cv02&#x27;,&#x27;cv03&#x27;,&#x27;cv04&#x27;,&#x27;ss01&#x27;;line-height:1.5;letter-spacing:-0.011em;}
+html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-feature-settings:&#x27;cv02&#x27;,&#x27;cv03&#x27;,&#x27;cv04&#x27;,&#x27;ss01&#x27;;line-height:1.5;letter-spacing:-0.011em;}
 
 /* ---------- Shell ---------- */
-.app{display:flex;min-height:100vh;}
+.app{display:flex;height:100vh;overflow:hidden;}
 .rail{width:64px;flex-shrink:0;background:var(--bg);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding:20px 0;gap:6px;position:sticky;top:0;height:100vh;}
 .rail-logo{width:36px;height:36px;border-radius:11px;background:linear-gradient(145deg,#00967f,#00695c);display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,121,107,.28);cursor:pointer;}
 .rail-btn{width:40px;height:40px;border-radius:11px;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;}
@@ -4080,7 +4098,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .rail-spacer{flex:1;}
 .rail-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(145deg,#6a62c4,#4b44a0);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:13px;}
 .main{flex:1;overflow-y:auto;height:100vh;}
-.container{max-width:none;margin:0;padding:32px 24px 120px;}
+.container{max-width:none;margin:0;padding:32px 24px 48px;}
 
 /* screen router */
 .screen{display:none;}
@@ -5050,15 +5068,290 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 .tr-verdict.wrong{color:var(--amber);}
 .tr-verdict.pending{color:var(--ink-3);}
 .tr-mock-note{font-size:10.5px;color:var(--ink-3);font-style:italic;margin-top:10px;display:flex;align-items:center;gap:5px;}
+
+/* ============ LOGIN / INTRO GATE ============ */
+#loginGate{position:fixed;inset:0;z-index:9999;display:flex;background:var(--bg);animation:lgFade .4s ease;}
+#loginGate.hide{animation:lgOut .5s ease forwards;pointer-events:none;}
+@keyframes lgFade{from{opacity:0;}to{opacity:1;}}
+@keyframes lgOut{from{opacity:1;}to{opacity:0;visibility:hidden;}}
+
+/* left — story panel */
+.lg-story{flex:1.15;min-width:0;position:relative;overflow:hidden;background:linear-gradient(160deg,#04463d 0%,#00695c 46%,#00897b 100%);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:52px 54px;}
+.lg-story::before{content:&quot;&quot;;position:absolute;width:520px;height:520px;right:-160px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 65%);}
+.lg-story::after{content:&quot;&quot;;position:absolute;width:420px;height:420px;left:-140px;bottom:-160px;border-radius:50%;background:radial-gradient(circle,rgba(91,83,184,.35),transparent 68%);}
+.lg-brand{position:relative;display:flex;align-items:center;gap:12px;}
+.lg-logo{width:42px;height:42px;border-radius:13px;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.18);}
+.lg-brand-name{font-size:15px;font-weight:600;letter-spacing:-.01em;}
+.lg-brand-sub{font-size:12px;color:rgba(255,255,255,.72);margin-top:1px;}
+
+.lg-hero{position:relative;max-width:520px;}
+.lg-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.82);background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:6px 13px;border-radius:99px;margin-bottom:22px;}
+.lg-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#7ee0c6;box-shadow:0 0 0 3px rgba(126,224,198,.28);}
+.lg-hero h1{font-size:34px;line-height:1.14;font-weight:600;letter-spacing:-.02em;margin-bottom:16px;}
+.lg-hero h1 .accent{color:#8fe6d0;}
+.lg-hero p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.82);max-width:470px;}
+
+.lg-points{position:relative;display:flex;flex-direction:column;gap:16px;max-width:500px;margin-top:6px;}
+.lg-point{display:flex;gap:14px;align-items:flex-start;}
+.lg-point-ic{width:38px;height:38px;flex-shrink:0;border-radius:11px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;}
+.lg-point-t{font-size:14px;font-weight:600;letter-spacing:-.01em;}
+.lg-point-d{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.72);margin-top:2px;}
+
+.lg-foot{position:relative;font-size:11.5px;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:8px;}
+
+/* right — login panel */
+.lg-auth{flex:.85;min-width:360px;display:flex;align-items:center;justify-content:center;padding:40px;}
+.lg-card{width:100%;max-width:360px;}
+.lg-card h2{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px;color:var(--ink);}
+.lg-card .lg-sub{font-size:13.5px;color:var(--ink-2);margin-bottom:28px;line-height:1.5;}
+.lg-field{margin-bottom:16px;}
+.lg-label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:7px;}
+.lg-input-wrap{position:relative;}
+.lg-input-wrap svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ink-3);pointer-events:none;}
+.lg-input{width:100%;font-family:var(--font);font-size:14px;color:var(--ink);background:var(--surface);border:1.5px solid var(--line-2);border-radius:10px;padding:12px 14px 12px 40px;outline:none;transition:border-color .15s,box-shadow .15s;}
+.lg-input::placeholder{color:var(--ink-3);}
+.lg-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+.lg-input.err{border-color:var(--red);box-shadow:0 0 0 3px var(--red-soft);}
+.lg-eye{position:absolute;right:11px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--ink-3);padding:4px;display:flex;}
+.lg-eye:hover{color:var(--ink-2);}
+.lg-err-msg{font-size:12px;color:var(--red);margin-top:7px;display:none;align-items:center;gap:5px;}
+.lg-err-msg.show{display:flex;}
+.lg-row{display:flex;align-items:center;justify-content:space-between;margin:4px 0 22px;}
+.lg-check{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2);cursor:pointer;user-select:none;}
+.lg-check input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer;}
+.lg-link{font-size:12.5px;font-weight:500;color:var(--accent);text-decoration:none;cursor:pointer;}
+.lg-link:hover{text-decoration:underline;}
+.lg-btn{width:100%;font-family:var(--font);font-size:14.5px;font-weight:600;color:#fff;background:var(--accent);border:none;border-radius:10px;padding:13px;cursor:pointer;transition:background .15s,transform .06s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 3px 10px rgba(0,121,107,.24);}
+.lg-btn:hover{background:#00695c;}
+.lg-btn:active{transform:scale(.99);}
+.lg-btn .spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:lgspin .6s linear infinite;display:none;}
+.lg-btn.loading .spin{display:block;}
+.lg-btn.loading .lg-btn-label{opacity:.85;}
+@keyframes lgspin{to{transform:rotate(360deg);}}
+.lg-hint{margin-top:20px;font-size:11.5px;line-height:1.5;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:10px 12px;}
+.lg-hint b{color:var(--ink-2);font-weight:600;}
+.lg-authfoot{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-3);}
+
+@media (max-width:860px){
+  .lg-story{display:none;}
+  .lg-auth{flex:1;}
+}
+
+
+/* ============ SKELETON LOADING ============ */
+@keyframes skShimmer{0%{background-position:-320px 0;}100%{background-position:320px 0;}}
+.sk{position:relative;background:linear-gradient(90deg,var(--surface-2) 0%,#efefee 20%,var(--surface-2) 40%);background-size:640px 100%;animation:skShimmer 1.25s ease-in-out infinite;border-radius:6px;}
+.sk-line{height:11px;border-radius:5px;margin-bottom:9px;}
+.sk-line.lg{height:16px;}
+.sk-line.xl{height:24px;border-radius:7px;}
+.sk-line.w40{width:40%;}.sk-line.w55{width:55%;}.sk-line.w70{width:70%;}.sk-line.w85{width:85%;}.sk-line.w30{width:30%;}.sk-line.w25{width:25%;}
+.sk-chip{display:inline-block;height:22px;width:82px;border-radius:99px;margin:0 6px 0 0;vertical-align:middle;}
+.sk-circle{border-radius:50%;flex-shrink:0;}
+.sk-block{border-radius:var(--radius-lg);}
+.sk-fade-in{animation:skFadeIn .42s ease both;}
+@keyframes skFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+/* subtle &quot;AI is working&quot; caption used above focus-mode skeletons */
+.sk-working{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--violet);font-weight:500;margin-bottom:14px;}
+.sk-working .sk-dot{width:7px;height:7px;border-radius:50%;background:var(--violet);animation:skPulse 1s ease-in-out infinite;}
+.sk-working .sk-dot:nth-child(2){animation-delay:.16s;}
+.sk-working .sk-dot:nth-child(3){animation-delay:.32s;}
+@keyframes skPulse{0%,100%{opacity:.3;transform:scale(.8);}50%{opacity:1;transform:scale(1);}}
+.sk-working-dots{display:inline-flex;gap:4px;}
+
+/* home skeleton layout */
+.home-sk{max-width:920px;}
+.home-sk-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:18px;margin-bottom:20px;}
+.home-sk-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:860px){.home-sk-cards{grid-template-columns:1fr;}}
+.home-sk-icard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:18px;min-height:210px;}
+
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
+
+&lt;!-- ============ LOGIN / INTRO GATE ============ --&gt;
+&lt;div id=&quot;loginGate&quot;&gt;
+  &lt;!-- LEFT: what the agent is --&gt;
+  &lt;div class=&quot;lg-story&quot;&gt;
+    &lt;div class=&quot;lg-brand&quot;&gt;
+      &lt;div class=&quot;lg-logo&quot;&gt;
+        &lt;svg width=&quot;22&quot; height=&quot;22&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z&quot; stroke=&quot;#fff&quot; stroke-width=&quot;1.7&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;path d=&quot;M9 12l2 2 4-4.5&quot; stroke=&quot;#8fe6d0&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;lg-brand-name&quot;&gt;Eltropy · Financial Wellness Agent&lt;/div&gt;
+        &lt;div class=&quot;lg-brand-sub&quot;&gt;Coastal Credit Union&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;lg-hero&quot;&gt;
+      &lt;span class=&quot;lg-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Your AI teammate, working overnight&lt;/span&gt;
+      &lt;h1&gt;Meet the members who need you &lt;span class=&quot;accent&quot;&gt;before&lt;/span&gt; they miss a payment.&lt;/h1&gt;
+      &lt;p&gt;The Financial Wellness Agent watches every member&#x27;s cash-flow signals around the clock, predicts who&#x27;s heading toward hardship — and who&#x27;s ready to grow — and prepares the outreach so you walk in already knowing where to start.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;lg-points&quot;&gt;
+      &lt;div class=&quot;lg-point&quot;&gt;
+        &lt;div class=&quot;lg-point-ic&quot;&gt;&lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;#8fe6d0&quot; stroke-width=&quot;1.7&quot;/&gt;&lt;path d=&quot;M12 7v5l3 2&quot; stroke=&quot;#8fe6d0&quot; stroke-width=&quot;1.7&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;div class=&quot;lg-point-t&quot;&gt;Detects distress early&lt;/div&gt;&lt;div class=&quot;lg-point-d&quot;&gt;Declining balances, payroll delays and overdrafts spotted weeks before the first missed payment.&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;lg-point&quot;&gt;
+        &lt;div class=&quot;lg-point-ic&quot;&gt;&lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M4 19V5m0 14h16M8 15l3-4 3 3 4-6&quot; stroke=&quot;#8fe6d0&quot; stroke-width=&quot;1.7&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;div class=&quot;lg-point-t&quot;&gt;Recommends one best action&lt;/div&gt;&lt;div class=&quot;lg-point-d&quot;&gt;A supportive check-in, a payment-date fix, or a genuinely helpful offer — drafted and ready.&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;lg-point&quot;&gt;
+        &lt;div class=&quot;lg-point-ic&quot;&gt;&lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z&quot; stroke=&quot;#8fe6d0&quot; stroke-width=&quot;1.7&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;div class=&quot;lg-point-t&quot;&gt;You stay in control&lt;/div&gt;&lt;div class=&quot;lg-point-d&quot;&gt;Monitor-first and human-in-the-loop. Nothing that touches money or a commitment sends without your approval.&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    
+  &lt;/div&gt;
+
+  &lt;!-- RIGHT: login --&gt;
+  &lt;div class=&quot;lg-auth&quot;&gt;
+    &lt;div class=&quot;lg-card&quot;&gt;
+      &lt;h2&gt;Sign in to start your day&lt;/h2&gt;
+      &lt;p class=&quot;lg-sub&quot;&gt;Welcome back. Your agent has already reviewed your members overnight.&lt;/p&gt;
+
+      &lt;div class=&quot;lg-field&quot;&gt;
+        &lt;label class=&quot;lg-label&quot; for=&quot;lgEmail&quot;&gt;Work email&lt;/label&gt;
+        &lt;div class=&quot;lg-input-wrap&quot;&gt;
+          &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;rect x=&quot;3&quot; y=&quot;5&quot; width=&quot;18&quot; height=&quot;14&quot; rx=&quot;2.5&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;/&gt;&lt;path d=&quot;M4 7l8 6 8-6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;
+          &lt;input class=&quot;lg-input&quot; id=&quot;lgEmail&quot; type=&quot;email&quot; placeholder=&quot;cindy@coastalcu.org&quot; autocomplete=&quot;username&quot; value=&quot;cindy@coastalcu.org&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;lg-field&quot;&gt;
+        &lt;label class=&quot;lg-label&quot; for=&quot;lgPass&quot;&gt;Password&lt;/label&gt;
+        &lt;div class=&quot;lg-input-wrap&quot;&gt;
+          &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;rect x=&quot;4&quot; y=&quot;10&quot; width=&quot;16&quot; height=&quot;10&quot; rx=&quot;2.5&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;/&gt;&lt;path d=&quot;M8 10V7a4 4 0 018 0v3&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;
+          &lt;input class=&quot;lg-input&quot; id=&quot;lgPass&quot; type=&quot;password&quot; placeholder=&quot;Enter your password&quot; autocomplete=&quot;current-password&quot; value=&quot;demo1234&quot;&gt;
+          &lt;button class=&quot;lg-eye&quot; type=&quot;button&quot; id=&quot;lgEye&quot; onclick=&quot;lgToggleEye()&quot; aria-label=&quot;Show password&quot;&gt;
+            &lt;svg width=&quot;17&quot; height=&quot;17&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;/&gt;&lt;/svg&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;lg-err-msg&quot; id=&quot;lgErr&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;path d=&quot;M12 8v4m0 3h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;span&gt;Enter your email and password to continue.&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;lg-row&quot;&gt;
+        &lt;label class=&quot;lg-check&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;lgRemember&quot; checked&gt; Keep me signed in&lt;/label&gt;
+        &lt;a class=&quot;lg-link&quot; onclick=&quot;return false;&quot;&gt;Forgot password?&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;button class=&quot;lg-btn&quot; id=&quot;lgBtn&quot; onclick=&quot;lgSignIn()&quot;&gt;
+        &lt;span class=&quot;spin&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;lg-btn-label&quot;&gt;Sign in&lt;/span&gt;
+      &lt;/button&gt;
+
+      &lt;div class=&quot;lg-hint&quot;&gt;&lt;b&gt;Demo:&lt;/b&gt; credentials are pre-filled — just press &lt;b&gt;Sign in&lt;/b&gt; to enter your morning view.&lt;/div&gt;
+
+      &lt;div class=&quot;lg-authfoot&quot;&gt;Protected by Eltropy · Single sign-on enabled&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+function lgToggleEye(){
+  var p=document.getElementById(&#x27;lgPass&#x27;);
+  var isPw=p.type===&#x27;password&#x27;;
+  p.type=isPw?&#x27;text&#x27;:&#x27;password&#x27;;
+  document.getElementById(&#x27;lgEye&#x27;).innerHTML=isPw
+    ? &#x27;&lt;svg width=&quot;17&quot; height=&quot;17&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M3 3l18 18&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;path d=&quot;M10.6 6.2A9.7 9.7 0 0112 6c6.5 0 10 7 10 7a17 17 0 01-2.4 3.1M6.2 6.2A17 17 0 002 12s3.5 7 10 7c1.3 0 2.5-.2 3.6-.6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;&#x27;
+    : &#x27;&lt;svg width=&quot;17&quot; height=&quot;17&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;/&gt;&lt;/svg&gt;&#x27;;
+}
+function lgSignIn(){
+  var email=document.getElementById(&#x27;lgEmail&#x27;).value.trim();
+  var pass=document.getElementById(&#x27;lgPass&#x27;).value.trim();
+  var err=document.getElementById(&#x27;lgErr&#x27;);
+  var eIn=document.getElementById(&#x27;lgEmail&#x27;);
+  var pIn=document.getElementById(&#x27;lgPass&#x27;);
+  if(!email||!pass){
+    err.classList.add(&#x27;show&#x27;);
+    if(!email)eIn.classList.add(&#x27;err&#x27;);
+    if(!pass)pIn.classList.add(&#x27;err&#x27;);
+    return;
+  }
+  err.classList.remove(&#x27;show&#x27;);eIn.classList.remove(&#x27;err&#x27;);pIn.classList.remove(&#x27;err&#x27;);
+  var btn=document.getElementById(&#x27;lgBtn&#x27;);
+  btn.classList.add(&#x27;loading&#x27;);
+  btn.querySelector(&#x27;.lg-btn-label&#x27;).textContent=&#x27;Signing in…&#x27;;
+  setTimeout(function(){
+    var gate=document.getElementById(&#x27;loginGate&#x27;);
+    gate.classList.add(&#x27;hide&#x27;);
+    if(typeof revealHome===&#x27;function&#x27;) revealHome();
+    try{ window.parent.postMessage({type:&#x27;guardian-login&#x27;},&#x27;*&#x27;); }catch(e){}
+    setTimeout(function(){ gate.style.display=&#x27;none&#x27;; },520);
+  },850);
+}
+// Called by the parent shell on logout — bring the login gate back cleanly.
+function showLoginGate(){
+  var gate=document.getElementById(&#x27;loginGate&#x27;);
+  if(!gate) return;
+  var btn=document.getElementById(&#x27;lgBtn&#x27;);
+  if(btn){ btn.classList.remove(&#x27;loading&#x27;); var lb=btn.querySelector(&#x27;.lg-btn-label&#x27;); if(lb) lb.textContent=&#x27;Sign in&#x27;; }
+  gate.classList.remove(&#x27;hide&#x27;);
+  gate.style.display=&#x27;&#x27;;
+  // reset home so the skeleton runs again on next sign-in
+  try{ if(typeof go===&#x27;function&#x27;) go(&#x27;home&#x27;); }catch(e){}
+  var real=document.getElementById(&#x27;homeReal&#x27;), sk=document.getElementById(&#x27;homeSkeleton&#x27;);
+  if(real) real.style.display=&#x27;none&#x27;;
+  if(sk) sk.style.display=&#x27;none&#x27;;
+}
+// Enter key submits from either field
+[&#x27;lgEmail&#x27;,&#x27;lgPass&#x27;].forEach(function(id){
+  document.getElementById(id).addEventListener(&#x27;keydown&#x27;,function(e){
+    if(e.key===&#x27;Enter&#x27;){e.preventDefault();lgSignIn();}
+    else{this.classList.remove(&#x27;err&#x27;);document.getElementById(&#x27;lgErr&#x27;).classList.remove(&#x27;show&#x27;);}
+  });
+});
+&lt;/script&gt;
+
 &lt;div class=&quot;app&quot;&gt;
   &lt;main class=&quot;main&quot;&gt;
 
     &lt;!-- ============ HOME ============ --&gt;
     &lt;section id=&quot;screen-home&quot; class=&quot;screen active&quot;&gt;
-      &lt;div class=&quot;container&quot;&gt;
+      &lt;!-- home skeleton (shown briefly right after login) --&gt;
+      &lt;div class=&quot;container home-sk&quot; id=&quot;homeSkeleton&quot; style=&quot;display:none&quot;&gt;
+        &lt;div class=&quot;sk-working&quot;&gt;&lt;span class=&quot;sk-working-dots&quot;&gt;&lt;span class=&quot;sk-dot&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sk-dot&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sk-dot&quot;&gt;&lt;/span&gt;&lt;/span&gt; Loading your morning view — the agent reviewed your members overnight…&lt;/div&gt;
+        &lt;div style=&quot;margin-bottom:22px&quot;&gt;
+          &lt;div class=&quot;sk sk-line xl w40&quot; style=&quot;margin-bottom:12px&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;sk sk-line w70&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;home-sk-card&quot;&gt;
+          &lt;div style=&quot;display:flex;align-items:center;gap:10px;margin-bottom:16px&quot;&gt;
+            &lt;div class=&quot;sk sk-circle&quot; style=&quot;width:26px;height:26px&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;sk sk-line lg w30&quot; style=&quot;margin:0&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;sk sk-line w85&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;sk sk-line w70&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;sk sk-line w55&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;sk sk-line w40&quot; style=&quot;margin-bottom:0&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;sk sk-line lg w25&quot; style=&quot;margin-bottom:14px&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;home-sk-cards&quot;&gt;
+          &lt;div class=&quot;home-sk-icard&quot;&gt;
+            &lt;div class=&quot;sk sk-line xl w30&quot; style=&quot;margin-bottom:14px&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;sk sk-line w85&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;sk sk-line w70&quot; style=&quot;margin-bottom:16px&quot;&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;sk sk-chip&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sk sk-chip&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;home-sk-icard&quot;&gt;
+            &lt;div class=&quot;sk sk-line xl w30&quot; style=&quot;margin-bottom:14px&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;sk sk-line w85&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;sk sk-line w70&quot; style=&quot;margin-bottom:16px&quot;&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;sk sk-chip&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sk sk-chip&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;home-sk-icard&quot;&gt;
+            &lt;div class=&quot;sk sk-line xl w30&quot; style=&quot;margin-bottom:14px&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;sk sk-line w85&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;sk sk-line w70&quot; style=&quot;margin-bottom:16px&quot;&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;sk sk-chip&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sk sk-chip&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;container&quot; id=&quot;homeReal&quot;&gt;
         &lt;div class=&quot;welcome&quot;&gt;
           &lt;div class=&quot;welcome-text&quot;&gt;
             &lt;h1&gt;Good morning, Cindy&lt;/h1&gt;
@@ -5676,8 +5969,8 @@ let ASST_MEMBER=null;          // current MEMBERS entry being worked
 // resolve the full PROFILES key for a MEMBERS entry (falls back to its route)
 function profKeyFor(m){ return (m.profile &amp;&amp; PROFILES[m.profile]) ? m.profile : (m.route||&#x27;david&#x27;); }
 
-// When a member borrows another member's wired profile (via route), the profile text
-// still names the original person. Swap the profile's first name for the actual member's
+// When a member borrows another member&#x27;s wired profile (via route), the profile text
+// still names the original person. Swap the profile&#x27;s first name for the actual member&#x27;s
 // first name so the standing context and thread read as the person on screen.
 function personalize(text, profileName, memberName){
   if(!text || !memberName || !profileName) return text;
@@ -5834,7 +6127,7 @@ function groupSwitchHTML(activeGroup){
 }
 
 /* ---- SURFACE: docked (working one member) vs focus (queue / broad) ---- */
-function renderDockSurface(){
+function renderDockSurfaceReal(){
   const body=document.getElementById(&#x27;dockBody&#x27;);
   const modeIcon=document.getElementById(&#x27;dockModeIcon&#x27;);
   const modeLabel=document.getElementById(&#x27;dockModeLabel&#x27;);
@@ -5909,7 +6202,7 @@ function renderDockSurface(){
 }
 
 /* build the AI summary block for the conversation thread — now also folds in
-   the Here's-what-Ive-done activity as one white message bubble */
+   the Here&#x27;s-what-Ive-done activity as one white message bubble */
 function buildSummaryHTML(key, memberName){
   const p=PROFILES[key]; if(!p) return &#x27;&#x27;;
   const fn=(memberName||p.name).split(&#x27; &#x27;)[0];
@@ -7233,6 +7526,60 @@ function toggleFreqAck(el){
   el.classList.toggle(&#x27;on&#x27;,FREQ_ACK);
   const btn=document.getElementById(&#x27;send-&#x27;+EXEC_IDX) || document.querySelector(&#x27;#exec-modal .btn-exec&#x27;);
   if(btn)btn.classList.toggle(&#x27;blocked&#x27;,!FREQ_ACK);
+}
+
+
+/* ==================== SKELETON LOADING ==================== */
+// Home: show skeleton, then reveal real content. Called after login.
+function revealHome(){
+  var sk=document.getElementById(&#x27;homeSkeleton&#x27;);
+  var real=document.getElementById(&#x27;homeReal&#x27;);
+  if(!sk||!real) return;
+  real.style.display=&#x27;none&#x27;;
+  sk.style.display=&#x27;&#x27;;
+  setTimeout(function(){
+    sk.style.display=&#x27;none&#x27;;
+    real.style.display=&#x27;&#x27;;
+    real.classList.remove(&#x27;sk-fade-in&#x27;); void real.offsetWidth; real.classList.add(&#x27;sk-fade-in&#x27;);
+  }, 1150);
+}
+
+// Focus / dock surface: skeleton for the AI assistant working surface.
+function dockSkeletonHTML(mode){
+  var work=&#x27;&lt;div class=&quot;sk-working&quot;&gt;&lt;span class=&quot;sk-working-dots&quot;&gt;&lt;span class=&quot;sk-dot&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sk-dot&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sk-dot&quot;&gt;&lt;/span&gt;&lt;/span&gt; &#x27;
+    + (mode===&#x27;member&#x27; ? &#x27;Pulling this member\u2019s signals and preparing recommendations\u2026&#x27; : &#x27;Reviewing the group and ranking who needs you first\u2026&#x27;)
+    + &#x27;&lt;/div&gt;&#x27;;
+  if(mode===&#x27;member&#x27;){
+    return work
+      + &#x27;&lt;div class=&quot;fq-card&quot; style=&quot;border:1px solid var(--line)&quot;&gt;&#x27;
+      +   &#x27;&lt;div class=&quot;sk sk-line lg w40&quot; style=&quot;margin-bottom:12px&quot;&gt;&lt;/div&gt;&#x27;
+      +   &#x27;&lt;div style=&quot;display:flex;gap:16px;align-items:center;margin-bottom:14px&quot;&gt;&lt;div class=&quot;sk sk-circle&quot; style=&quot;width:64px;height:64px&quot;&gt;&lt;/div&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;sk sk-line w70&quot;&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w85&quot;&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w55&quot; style=&quot;margin-bottom:0&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&#x27;
+      +   &#x27;&lt;div class=&quot;sk sk-line w85&quot;&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w70&quot; style=&quot;margin-bottom:0&quot;&gt;&lt;/div&gt;&#x27;
+      + &#x27;&lt;/div&gt;&#x27;
+      + &#x27;&lt;div class=&quot;sk sk-line lg w30&quot; style=&quot;margin:18px 0 12px&quot;&gt;&lt;/div&gt;&#x27;
+      + [0,1,2].map(function(){return &#x27;&lt;div class=&quot;fq-card&quot; style=&quot;border:1px solid var(--line);margin-bottom:9px&quot;&gt;&lt;div style=&quot;display:flex;gap:10px;align-items:center;margin-bottom:10px&quot;&gt;&lt;div class=&quot;sk sk-circle&quot; style=&quot;width:22px;height:22px&quot;&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w55&quot; style=&quot;margin:0&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w85&quot;&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w40&quot; style=&quot;margin-bottom:0&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#x27;;}).join(&#x27;&#x27;);
+  }
+  return work
+    + &#x27;&lt;div class=&quot;fq-card&quot; style=&quot;border:1px solid var(--line)&quot;&gt;&lt;div class=&quot;sk sk-line lg w40&quot; style=&quot;margin-bottom:12px&quot;&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w85&quot;&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w70&quot; style=&quot;margin-bottom:0&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#x27;
+    + &#x27;&lt;div class=&quot;sk sk-line lg w25&quot; style=&quot;margin:18px 0 12px&quot;&gt;&lt;/div&gt;&#x27;
+    + [0,1,2,3].map(function(){return &#x27;&lt;div class=&quot;fq-card&quot; style=&quot;border:1px solid var(--line);margin-bottom:8px;display:flex;align-items:center;gap:12px&quot;&gt;&lt;div class=&quot;sk sk-circle&quot; style=&quot;width:28px;height:28px&quot;&gt;&lt;/div&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;sk sk-line w55&quot;&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w85&quot; style=&quot;margin-bottom:0&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;sk sk-line w25&quot; style=&quot;width:44px;margin-bottom:0&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#x27;;}).join(&#x27;&#x27;);
+}
+
+// Wrapper: entering focus/member first shows a skeleton, then the real surface.
+var _dockSkTimer=null;
+function renderDockSurface(){
+  var body=document.getElementById(&#x27;dockBody&#x27;);
+  var env=document.getElementById(&#x27;asstEnv&#x27;);
+  if(!body){ return renderDockSurfaceReal(); }
+  var mode = ASST_FOCUS ? &#x27;queue&#x27; : &#x27;member&#x27;;
+  if(ASST_FOCUS){ if(env)env.classList.add(&#x27;focus&#x27;); } else { if(env)env.classList.remove(&#x27;focus&#x27;); }
+  body.innerHTML = dockSkeletonHTML(mode);
+  clearTimeout(_dockSkTimer);
+  _dockSkTimer=setTimeout(function(){
+    renderDockSurfaceReal();
+    var b=document.getElementById(&#x27;dockBody&#x27;);
+    if(b){ b.classList.remove(&#x27;sk-fade-in&#x27;); void b.offsetWidth; b.classList.add(&#x27;sk-fade-in&#x27;); }
+  }, 780);
 }
 
 buildPending();refreshPendingFab();startPendingClock();
@@ -9938,6 +10285,37 @@ function guardianGo(screen){
 
 // Init
 goToState(2);
+
+/* ── LOGIN CHROME + PROFILE MENU ── */
+function revealChrome(){
+  var shell=document.getElementById('appShell');
+  if(shell) shell.classList.remove('chrome-hidden');
+}
+// Guardian iframe tells us login succeeded
+window.addEventListener('message',function(e){
+  if(e&&e.data&&e.data.type==='guardian-login'){ revealChrome(); }
+});
+function toggleProfileMenu(ev){
+  if(ev) ev.stopPropagation();
+  var m=document.getElementById('profileMenu');
+  if(m) m.classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  var m=document.getElementById('profileMenu');
+  var b=document.getElementById('profileBtn');
+  if(m&&m.classList.contains('open')&&!m.contains(e.target)&&e.target!==b){ m.classList.remove('open'); }
+});
+function guardianLogout(){
+  var m=document.getElementById('profileMenu'); if(m) m.classList.remove('open');
+  // hide chrome again and tell the guardian iframe to show the login gate
+  var shell=document.getElementById('appShell'); if(shell) shell.classList.add('chrome-hidden');
+  try{
+    var f=document.getElementById('guardianFrame');
+    if(f&&f.contentWindow&&typeof f.contentWindow.showLoginGate==='function'){ f.contentWindow.showLoginGate(); }
+    else if(f){ f.src=f.src; } // fallback: reload iframe -> gate shows by default
+  }catch(err){ location.reload(); }
+}
+
 
 /* ══ SET CHANNEL (was undefined — fixes channel switcher buttons) ══ */
 function setChannel(el){
