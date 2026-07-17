@@ -4874,6 +4874,10 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .view-switch{display:flex;gap:4px;background:var(--surface-2);border-radius:11px;padding:4px;flex-shrink:0;}
 .view-switch button{font-size:13px;font-weight:500;color:var(--ink-2);background:transparent;border:none;border-radius:8px;padding:8px 16px;cursor:pointer;font-family:var(--font);transition:all .16s;}
 .view-switch button.active{background:var(--surface);color:var(--ink);box-shadow:var(--shadow-sm);font-weight:600;}
+.impact-head-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap;}
+.impact-export-btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--ink);background:var(--surface);border:1px solid var(--line-2);border-radius:11px;padding:9px 15px;cursor:pointer;font-family:var(--font);white-space:nowrap;transition:all .16s;box-shadow:var(--shadow-sm);}
+.impact-export-btn:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-soft);}
+.impact-export-btn svg{flex-shrink:0;}
 
 .imp-band-label{font-size:12px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.06em;margin:26px 2px 12px;display:flex;align-items:center;gap:8px;}
 .imp-band-label .tagpill{font-size:10.5px;font-weight:600;text-transform:none;letter-spacing:0;padding:2px 8px;border-radius:99px;}
@@ -7629,9 +7633,15 @@ function renderImpact(view){
           ? &#x27;Were my flags right, did my outreach work, and who did I actually help?&#x27;
           : &#x27;Is Guardian reducing delinquencies and driving benefit-tested growth across the institution — and what is the return?&#x27;}&lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;view-switch&quot;&gt;
-        &lt;button class=&quot;${view===&#x27;rm&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot; onclick=&quot;renderImpact(&#x27;rm&#x27;)&quot;&gt;My impact&lt;/button&gt;
-        &lt;button class=&quot;${view===&#x27;exec&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot; onclick=&quot;renderImpact(&#x27;exec&#x27;)&quot;&gt;Institution&lt;/button&gt;
+      &lt;div class=&quot;impact-head-actions&quot;&gt;
+        &lt;div class=&quot;view-switch&quot;&gt;
+          &lt;button class=&quot;${view===&#x27;rm&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot; onclick=&quot;renderImpact(&#x27;rm&#x27;)&quot;&gt;My impact&lt;/button&gt;
+          &lt;button class=&quot;${view===&#x27;exec&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot; onclick=&quot;renderImpact(&#x27;exec&#x27;)&quot;&gt;Institution&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;button class=&quot;impact-export-btn&quot; onclick=&quot;exportImpact(&#x27;${view}&#x27;)&quot; title=&quot;Download these metrics as a CSV&quot;&gt;
+          &lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 3v12m0 0l-4-4m4 4l4-4&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;path d=&quot;M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;
+          Export
+        &lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;`;
 
@@ -7757,6 +7767,58 @@ function renderImpact(view){
       &lt;/div&gt;`;
   }
   document.getElementById(&#x27;impact-container&#x27;).innerHTML=switcher+body;
+}
+function exportImpact(view){
+  const root=document.getElementById(&#x27;impact-container&#x27;);
+  if(!root){return;}
+  const rows=[];
+  const esc=v=&gt;{
+    v=(v==null?&#x27;&#x27;:String(v)).replace(/\s+/g,&#x27; &#x27;).trim();
+    return /[&quot;,\n]/.test(v)?&#x27;&quot;&#x27;+v.replace(/&quot;/g,&#x27;&quot;&quot;&#x27;)+&#x27;&quot;&#x27;:v;
+  };
+  const label=view===&#x27;exec&#x27;?&#x27;Institution&#x27;:&#x27;My impact&#x27;;
+  rows.push([&#x27;Financial Wellness Agent — Impact export&#x27;]);
+  rows.push([&#x27;View&#x27;,label]);
+  rows.push([&#x27;Generated&#x27;,new Date().toLocaleString()]);
+  rows.push([]);
+  rows.push([&#x27;Section&#x27;,&#x27;Metric&#x27;,&#x27;Value&#x27;,&#x27;Detail&#x27;]);
+  // Walk the rendered content in document order, tracking the current band label.
+  let section=&#x27;General&#x27;;
+  root.querySelectorAll(&#x27;.imp-band-label, .tile, .oc, .fn-row, .vis-tier, .thr-side&#x27;).forEach(el=&gt;{
+    if(el.classList.contains(&#x27;imp-band-label&#x27;)){
+      section=el.textContent.replace(/\s+/g,&#x27; &#x27;).trim();
+      return;
+    }
+    if(el.classList.contains(&#x27;tile&#x27;)){
+      const k=el.querySelector(&#x27;.tile-k&#x27;), v=el.querySelector(&#x27;.tile-v&#x27;);
+      const d=el.querySelector(&#x27;.tile-note&#x27;)||el.querySelector(&#x27;.tile-delta&#x27;);
+      rows.push([section, k?k.textContent:&#x27;&#x27;, v?v.textContent:&#x27;&#x27;, d?d.textContent:&#x27;&#x27;]);
+    }else if(el.classList.contains(&#x27;oc&#x27;)){
+      const k=el.querySelector(&#x27;.oc-label&#x27;), v=el.querySelector(&#x27;.oc-v&#x27;), d=el.querySelector(&#x27;.oc-desc&#x27;);
+      rows.push([section, k?k.textContent:&#x27;&#x27;, v?v.textContent:&#x27;&#x27;, d?d.textContent:&#x27;&#x27;]);
+    }else if(el.classList.contains(&#x27;fn-row&#x27;)){
+      const k=el.querySelector(&#x27;.fn-label&#x27;), c=el.querySelector(&#x27;.fn-fill&#x27;), v=el.querySelector(&#x27;.fn-val&#x27;);
+      rows.push([section, k?k.textContent:&#x27;&#x27;, c?c.textContent:&#x27;&#x27;, v?v.textContent:&#x27;&#x27;]);
+    }else if(el.classList.contains(&#x27;vis-tier&#x27;)){
+      const k=el.querySelector(&#x27;.vis-tier-top&#x27;), v=el.querySelector(&#x27;.vis-tier-v&#x27;), c=el.querySelector(&#x27;.vis-tier-conf&#x27;);
+      rows.push([section, k?k.textContent:&#x27;&#x27;, v?v.textContent:&#x27;&#x27;, c?c.textContent:&#x27;&#x27;]);
+    }else if(el.classList.contains(&#x27;thr-side&#x27;)){
+      const b=el.querySelector(&#x27;b&#x27;);
+      rows.push([section, el.textContent.replace(b?b.textContent:&#x27;&#x27;,&#x27;&#x27;).replace(/\s+/g,&#x27; &#x27;).trim(), b?b.textContent:&#x27;&#x27;, &#x27;&#x27;]);
+    }
+  });
+  const csv=rows.map(r=&gt;r.map(esc).join(&#x27;,&#x27;)).join(&#x27;\r\n&#x27;);
+  const blob=new Blob([&#x27;\ufeff&#x27;+csv],{type:&#x27;text/csv;charset=utf-8;&#x27;});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement(&#x27;a&#x27;);
+  const stamp=new Date().toISOString().slice(0,10);
+  a.href=url;
+  a.download=&#x27;guardian-impact-&#x27;+(view===&#x27;exec&#x27;?&#x27;institution&#x27;:&#x27;my-impact&#x27;)+&#x27;-&#x27;+stamp+&#x27;.csv&#x27;;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(()=&gt;URL.revokeObjectURL(url),1500);
+  showToast(&#x27;Impact metrics exported · &#x27;+label+&#x27; (CSV)&#x27;);
 }
 function fbAnswer(i,msg){
   const item=document.getElementById(&#x27;fb-&#x27;+i);
