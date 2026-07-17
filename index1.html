@@ -3824,7 +3824,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--t1);display:flex;flex
           <span class="nav-sublabel">Conversations</span>
         </button>
         <button class="nav-subitem active" onclick="setNavSubActive(this); guardianGo('home')">
-          <span class="nav-sublabel">Financial Wellness Agent</span>
+          <span class="nav-sublabel">Financial Wellness</span>
         </button>
         <button class="nav-subitem" onclick="setNavSubActive(this); guardianGo('impact')">
           <span class="nav-sublabel">Impact</span>
@@ -5100,7 +5100,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .lg-foot{position:relative;font-size:11.5px;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:8px;}
 
 /* login panel — centered, standalone */
-.lg-auth{flex:none;width:100%;display:flex;align-items:center;justify-content:center;padding:40px;}
+.lg-auth{flex:none;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;gap:18px;}
 .lg-card{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:34px 32px;box-shadow:0 10px 40px rgba(20,20,19,.08),0 2px 8px rgba(20,20,19,.04);}
 .lg-card-brand{display:flex;align-items:center;gap:11px;margin-bottom:26px;}
 .lg-card-logo{width:38px;height:38px;flex-shrink:0;border-radius:11px;background:linear-gradient(145deg,#00967f,#00695c);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,121,107,.28);}
@@ -5133,7 +5133,8 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .lg-btn.loading .lg-btn-label{opacity:.85;}
 @keyframes lgspin{to{transform:rotate(360deg);}}
 .lg-hint{margin-top:20px;font-size:11.5px;line-height:1.5;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:10px 12px;}
-.lg-hint b{color:var(--ink-2);font-weight:600;}
+.lg-hint b{color:var(--ink-2);font-weight:600;}.lg-back-deck{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:transparent;border:none;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:600;color:var(--ink-2);padding:8px 14px;border-radius:9px;transition:color .15s,background .15s;}.lg-back-deck:hover{color:var(--ink);background:var(--surface-2);}.lg-back-deck svg{transition:transform .15s;}.lg-back-deck:hover svg{transform:translateX(-3px);}
+
 .lg-authfoot{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-3);}
 
 @media (max-width:860px){
@@ -5178,12 +5179,12 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 /* top bar */
 .deck-top{flex-shrink:0;display:flex;align-items:center;gap:14px;padding:18px 30px;border-bottom:1px solid var(--line);background:var(--surface);}
 .deck-brand{display:flex;align-items:center;gap:11px;}
-.deck-logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(145deg,#00967f,#00695c);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,121,107,.28);}
+.deck-logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(145deg,#7c3aed,#be185d);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,121,107,.28);}
 .deck-brand-name{font-size:13.5px;font-weight:600;letter-spacing:-.01em;}
 .deck-brand-sub{font-size:11px;color:var(--ink-3);margin-top:1px;}
 .deck-progress{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;}
 .deck-dot{width:8px;height:8px;border-radius:50%;background:var(--line-2);cursor:pointer;transition:all .2s;}
-.deck-dot.active{background:var(--accent);width:22px;border-radius:99px;}
+.deck-dot.active{background:#a855f7;width:22px;border-radius:99px;}
 .deck-dot:hover{background:var(--accent);opacity:.6;}
 .deck-skip{font-size:12.5px;font-weight:600;color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:9px;padding:8px 14px;cursor:pointer;font-family:var(--font);transition:all .15s;}
 .deck-skip:hover{background:var(--surface-2);color:var(--ink);border-color:var(--ink-3);}
@@ -5196,31 +5197,31 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 
 /* generic split layout used by most parts: dark hero rail + light content */
 .deck-split{flex:1;display:flex;min-height:0;}
-.deck-hero{flex:.92;min-width:0;position:relative;overflow:hidden;background:linear-gradient(160deg,#04463d 0%,#00695c 46%,#00897b 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:56px 58px;}
+.deck-hero{flex:.92;min-width:0;position:relative;overflow:hidden;background:linear-gradient(155deg,#2e1065 0%,#6d28d9 50%,#be185d 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:56px 58px;}
 .deck-hero::before{content:&quot;&quot;;pointer-events:none;position:absolute;width:520px;height:520px;right:-170px;top:-170px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 65%);}
-.deck-hero::after{content:&quot;&quot;;pointer-events:none;position:absolute;width:440px;height:440px;left:-150px;bottom:-170px;border-radius:50%;background:radial-gradient(circle,rgba(91,83,184,.32),transparent 68%);}
+.deck-hero::after{content:&quot;&quot;;pointer-events:none;position:absolute;width:440px;height:440px;left:-150px;bottom:-170px;border-radius:50%;background:radial-gradient(circle,rgba(236,72,153,.34),transparent 68%);}
 .deck-eyebrow{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.82);background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:6px 13px;border-radius:99px;margin-bottom:22px;align-self:flex-start;}
-.deck-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#7ee0c6;box-shadow:0 0 0 3px rgba(126,224,198,.28);}
+.deck-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#f9a8d4;box-shadow:0 0 0 3px rgba(249,168,212,.30);}
 .deck-hero h1{position:relative;font-size:38px;line-height:1.12;font-weight:600;letter-spacing:-.025em;margin-bottom:18px;max-width:560px;}
 .deck-hero h2{position:relative;font-size:29px;line-height:1.16;font-weight:600;letter-spacing:-.02em;margin-bottom:16px;max-width:540px;}
-.deck-hero .accent{color:#8fe6d0;}
+.deck-hero .accent{color:#f5b5e0;}
 .deck-hero p{position:relative;font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.85);max-width:500px;}
 .deck-hero p+p{margin-top:14px;}
-.deck-hero .kicker{position:relative;font-size:13px;font-weight:600;color:#8fe6d0;letter-spacing:.02em;margin-bottom:10px;}
+.deck-hero .kicker{position:relative;font-size:13px;font-weight:600;color:#f5b5e0;letter-spacing:.02em;margin-bottom:10px;}
 
 .deck-content{position:relative;z-index:1;flex:1.08;min-width:0;overflow-y:auto;padding:56px 54px;display:flex;flex-direction:column;justify-content:center;background:var(--bg);}
 .deck-content.center{align-items:flex-start;}
-.deck-kh{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.deck-kh{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9333ea;margin-bottom:16px;}
 .deck-content h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px;color:var(--ink);}
 .deck-content p{font-size:14.5px;line-height:1.6;color:var(--ink-2);}
 .deck-lead{font-size:16px;line-height:1.55;color:var(--ink);font-weight:500;margin-bottom:22px;}
 
 /* single full-bleed hero (title / closing) */
-.deck-solo{flex:1;position:relative;overflow:hidden;background:linear-gradient(155deg,#04463d 0%,#00695c 44%,#00897b 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 9%;}
+.deck-solo{flex:1;position:relative;overflow:hidden;background:linear-gradient(150deg,#2e1065 0%,#6d28d9 48%,#be185d 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 9%;}
 .deck-solo::before{content:&quot;&quot;;pointer-events:none;position:absolute;width:640px;height:640px;right:-200px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.13),transparent 64%);}
-.deck-solo::after{content:&quot;&quot;;pointer-events:none;position:absolute;width:540px;height:540px;left:-180px;bottom:-200px;border-radius:50%;background:radial-gradient(circle,rgba(91,83,184,.34),transparent 66%);}
+.deck-solo::after{content:&quot;&quot;;pointer-events:none;position:absolute;width:540px;height:540px;left:-180px;bottom:-200px;border-radius:50%;background:radial-gradient(circle,rgba(236,72,153,.36),transparent 66%);}
 .deck-solo .inner{position:relative;z-index:1;max-width:820px;}
-.deck-solo h1{font-size:52px;line-height:1.08;font-weight:600;letter-spacing:-.03em;margin-bottom:22px;}
+.deck-solo h1{font-size:52px;line-height:1.08;font-weight:600;letter-spacing:-.03em;margin-bottom:22px;}.deck-solo .accent{color:#f5b5e0;}
 .deck-solo .sub{font-size:19px;line-height:1.5;color:rgba(255,255,255,.86);max-width:640px;}
 .deck-jump{position:relative;z-index:2;display:inline-flex;align-items:center;gap:9px;margin-top:30px;font-size:14.5px;font-weight:600;color:#fff;letter-spacing:-.01em;cursor:pointer;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);border-radius:11px;padding:12px 20px;transition:background .16s,border-color .16s,transform .06s;text-decoration:none;}.deck-jump:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);}.deck-jump:active{transform:scale(.98);}.deck-jump svg{transition:transform .16s;}.deck-jump:hover svg{transform:translateX(3px);}
 .deck-solo .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.82);background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:7px 15px;border-radius:99px;margin-bottom:26px;}
@@ -5230,7 +5231,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .deck-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow-sm);}
 .deck-card .ct{font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px;display:flex;align-items:center;gap:8px;}
 .deck-card .cd{font-size:13px;line-height:1.5;color:var(--ink-2);}
-.deck-card.accent{border-left:3px solid var(--accent);}
+.deck-card.accent{border-left:3px solid #9333ea;}
 .deck-card.red{border-left:3px solid var(--red);}
 .deck-card.amber{border-left:3px solid var(--amber);}
 .deck-card.green{border-left:3px solid var(--green);}
@@ -5240,7 +5241,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .deck-stats.two{grid-template-columns:repeat(2,1fr);}
 .deck-stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 16px;box-shadow:var(--shadow-sm);}
 .deck-stat .sv{font-size:30px;font-weight:700;letter-spacing:-.03em;color:var(--ink);line-height:1;}
-.deck-stat .sv.green{color:var(--green);}.deck-stat .sv.red{color:var(--red);}.deck-stat .sv.accent{color:var(--accent);}.deck-stat .sv.amber{color:var(--amber);}
+.deck-stat .sv.green{color:var(--green);}.deck-stat .sv.red{color:var(--red);}.deck-stat .sv.accent{color:#9333ea;}.deck-stat .sv.amber{color:var(--amber);}
 .deck-stat .sl{font-size:12px;color:var(--ink-2);margin-top:8px;line-height:1.4;}
 .deck-stat .sd{font-size:11px;color:var(--ink-3);margin-top:5px;}
 
@@ -5252,13 +5253,13 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 /* numbered / timeline list */
 .deck-steps{display:flex;flex-direction:column;gap:10px;}
 .deck-step{display:flex;gap:14px;align-items:flex-start;}
-.deck-step .sn{width:30px;height:30px;flex-shrink:0;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
+.deck-step .sn{width:30px;height:30px;flex-shrink:0;border-radius:9px;background:#f3e8ff;color:#9333ea;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
 .deck-step .stt{font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.01em;}
 .deck-step .std{font-size:13px;line-height:1.5;color:var(--ink-2);margin-top:2px;}
 .deck-step.bad .sn{background:var(--red-soft);color:var(--red);}
 .deck-step.warn .sn{background:var(--amber-soft);color:var(--amber);}
 
-/* week timeline for Sarah */
+/* week timeline — member story */
 .deck-week{display:flex;flex-direction:column;gap:0;position:relative;padding-left:6px;}
 .deck-wk{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed var(--line-2);}
 .deck-wk:last-child{border-bottom:none;}
@@ -5285,7 +5286,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .deck-layers{display:flex;flex-direction:column;gap:12px;}
 .deck-layer{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow-sm);position:relative;}
 .deck-layer .ln{width:44px;height:44px;flex-shrink:0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;}
-.deck-layer.l1 .ln{background:linear-gradient(145deg,#00967f,#00695c);}
+.deck-layer.l1 .ln{background:linear-gradient(145deg,#7c3aed,#be185d);}
 .deck-layer.l2 .ln{background:linear-gradient(145deg,#6a62c4,#4b44a0);}
 .deck-layer.l3 .ln{background:linear-gradient(145deg,#c77a2c,#a5621f);}
 .deck-layer .lt{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em;}
@@ -5304,13 +5305,13 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .deck-users{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 .deck-user{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 18px;box-shadow:var(--shadow-sm);text-align:center;}
 .deck-user .ui{width:52px;height:52px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;}
-.deck-user.primary .ui{background:var(--accent-soft);color:var(--accent);}
+.deck-user.primary .ui{background:#f3e8ff;color:#9333ea;}
 .deck-user.secondary .ui{background:var(--violet-soft);color:var(--violet);}
 .deck-user.tertiary .ui{background:var(--amber-soft);color:var(--amber);}
 .deck-user .un{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em;}
 .deck-user .ur{font-size:12px;color:var(--ink-2);margin-top:4px;line-height:1.45;}
 .deck-user .ub{display:inline-block;margin-top:10px;font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:99px;}
-.deck-user.primary .ub{background:var(--accent-soft);color:var(--accent);}
+.deck-user.primary .ub{background:#f3e8ff;color:#9333ea;}
 .deck-user.secondary .ub{background:var(--violet-soft);color:var(--violet);}
 .deck-user.tertiary .ub{background:var(--amber-soft);color:var(--amber);}
 
@@ -5318,7 +5319,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .deck-jtbd{display:flex;flex-direction:column;gap:12px;}
 .deck-job{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow-sm);}
 .deck-job .jh{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px;}
-.deck-job.func .jh{color:var(--accent);}
+.deck-job.func .jh{color:#9333ea;}
 .deck-job.emo .jh{color:var(--violet);}
 .deck-job.biz .jh{color:var(--amber);}
 .deck-job .jt{font-size:13.5px;line-height:1.5;color:var(--ink);}
@@ -5334,8 +5335,8 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
 .deck-btn.ghost{background:transparent;border:1px solid var(--line-2);color:var(--ink-2);}
 .deck-btn.ghost:hover{background:var(--surface-2);color:var(--ink);border-color:var(--ink-3);}
 .deck-btn.ghost:disabled{opacity:.4;cursor:not-allowed;}
-.deck-btn.primary{background:var(--accent);border:1px solid var(--accent);color:#fff;box-shadow:0 3px 10px rgba(0,121,107,.24);}
-.deck-btn.primary:hover{background:#00695c;}
+.deck-btn.primary{background:linear-gradient(135deg,#7c3aed,#be185d);border:1px solid transparent;color:#fff;box-shadow:0 3px 12px rgba(124,58,237,.30);}
+.deck-btn.primary:hover{background:linear-gradient(135deg,#6d28d9,#9d174d);}
 
 @media(max-width:900px){
   .deck-split{flex-direction:column;}
@@ -5365,7 +5366,6 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;section class=&quot;deck-slide active&quot; data-part=&quot;1&quot;&gt;
       &lt;div class=&quot;deck-solo&quot;&gt;
         &lt;div class=&quot;inner&quot;&gt;
-          &lt;span class=&quot;tag&quot;&gt;&lt;span style=&quot;width:6px;height:6px;border-radius:50%;background:#7ee0c6;display:inline-block&quot;&gt;&lt;/span&gt; Part 1 · Background &amp;amp; Context&lt;/span&gt;
           &lt;h1&gt;Prevention over&lt;br&gt;collections.&lt;/h1&gt;
           &lt;div class=&quot;sub&quot;&gt;An AI Financial Wellness Agent that catches financial distress weeks before a missed payment — and helps members recover before it becomes a crisis.&lt;/div&gt;
           &lt;div class=&quot;deck-hero-stats&quot; style=&quot;margin-top:34px&quot;&gt;
@@ -5424,18 +5424,18 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;section class=&quot;deck-slide&quot; data-part=&quot;2&quot;&gt;
       &lt;div class=&quot;deck-split&quot;&gt;
         &lt;div class=&quot;deck-hero&quot;&gt;
-          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Part 2 · The Problem&lt;/span&gt;
-          &lt;h2&gt;Meet Sarah.&lt;br&gt;Her crisis was &lt;span class=&quot;accent&quot;&gt;visible for weeks&lt;/span&gt;.&lt;/h2&gt;
-          &lt;p&gt;Sarah isn&#x27;t reckless. She&#x27;s one payroll hiccup away from trouble, like millions of members. Her data told the whole story — the credit union just wasn&#x27;t reading it.&lt;/p&gt;
+          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;The Problem&lt;/span&gt;
+          &lt;h2&gt;Meet a member.&lt;br&gt;Their crisis was &lt;span class=&quot;accent&quot;&gt;visible for weeks&lt;/span&gt;.&lt;/h2&gt;
+          &lt;p&gt;They&#x27;re not reckless — just one payroll hiccup away from trouble, like millions of members. The data told the whole story; the credit union just wasn&#x27;t reading it.&lt;/p&gt;
           &lt;p class=&quot;kicker&quot; style=&quot;margin-top:18px&quot;&gt;By the time a payment was missed, the moment to help had already passed.&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&quot;deck-content&quot;&gt;
           &lt;div class=&quot;deck-kh&quot;&gt;Week by week&lt;/div&gt;
           &lt;div class=&quot;deck-week&quot;&gt;
             &lt;div class=&quot;deck-wk&quot;&gt;&lt;div class=&quot;wlab&quot;&gt;Week 1&lt;/div&gt;&lt;div class=&quot;wtxt&quot;&gt;&lt;b&gt;Payroll lands 4 days late.&lt;/b&gt; Checking dips below its usual floor. No one notices.&lt;/div&gt;&lt;/div&gt;
-            &lt;div class=&quot;deck-wk&quot;&gt;&lt;div class=&quot;wlab&quot;&gt;Week 2&lt;/div&gt;&lt;div class=&quot;wtxt&quot;&gt;&lt;b&gt;An unexpected medical bill.&lt;/b&gt; Sarah moves savings into checking to cover it.&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;deck-wk&quot;&gt;&lt;div class=&quot;wlab&quot;&gt;Week 2&lt;/div&gt;&lt;div class=&quot;wtxt&quot;&gt;&lt;b&gt;An unexpected medical bill.&lt;/b&gt; Savings gets moved into checking to cover it.&lt;/div&gt;&lt;/div&gt;
             &lt;div class=&quot;deck-wk&quot;&gt;&lt;div class=&quot;wlab&quot;&gt;Week 3&lt;/div&gt;&lt;div class=&quot;wtxt&quot;&gt;&lt;b&gt;First overdraft. Credit-card utilization jumps.&lt;/b&gt; The buffer is gone.&lt;/div&gt;&lt;/div&gt;
-            &lt;div class=&quot;deck-wk crisis&quot;&gt;&lt;div class=&quot;wlab&quot;&gt;Week 4&lt;/div&gt;&lt;div class=&quot;wtxt&quot;&gt;&lt;b&gt;Rent and the loan payment fall in the same week.&lt;/b&gt; Sarah goes quiet — and avoids the credit union&#x27;s calls.&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;deck-wk crisis&quot;&gt;&lt;div class=&quot;wlab&quot;&gt;Week 4&lt;/div&gt;&lt;div class=&quot;wtxt&quot;&gt;&lt;b&gt;Rent and the loan payment fall in the same week.&lt;/b&gt; The member goes quiet — and avoids the credit union&#x27;s calls.&lt;/div&gt;&lt;/div&gt;
             &lt;div class=&quot;deck-wk crisis&quot;&gt;&lt;div class=&quot;wlab&quot;&gt;Week 5&lt;/div&gt;&lt;div class=&quot;wtxt&quot;&gt;&lt;b&gt;Missed loan payment.&lt;/b&gt; Only now does the system react — with a collections notice.&lt;/div&gt;&lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -5486,7 +5486,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;!-- ============ PART 3 · SLIDE 7 : THREE USERS ============ --&gt;
     &lt;section class=&quot;deck-slide&quot; data-part=&quot;3&quot;&gt;
       &lt;div class=&quot;deck-content&quot; style=&quot;padding:52px 8%;justify-content:center&quot;&gt;
-        &lt;div class=&quot;deck-kh&quot; style=&quot;text-align:center&quot;&gt;Part 3 · Users &amp;amp; Stakeholders&lt;/div&gt;
+        &lt;div class=&quot;deck-kh&quot; style=&quot;text-align:center&quot;&gt;Users &amp;amp; Stakeholders&lt;/div&gt;
         &lt;h3 style=&quot;text-align:center;font-size:26px;margin-bottom:8px&quot;&gt;One agent serving three people at once&lt;/h3&gt;
         &lt;p style=&quot;text-align:center;max-width:620px;margin:0 auto 30px&quot;&gt;Its job only works if all three win together — that alignment is the whole point of a member-owned cooperative.&lt;/p&gt;
         &lt;div class=&quot;deck-users&quot;&gt;
@@ -5516,8 +5516,8 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;section class=&quot;deck-slide&quot; data-part=&quot;3&quot;&gt;
       &lt;div class=&quot;deck-split&quot;&gt;
         &lt;div class=&quot;deck-hero&quot;&gt;
-          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Relationship Manager&lt;/span&gt;
-          &lt;h2&gt;Jobs to be done&lt;/h2&gt;
+          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Jobs to be done&lt;/span&gt;
+          &lt;h2&gt;What the &lt;span class=&quot;accent&quot;&gt;Relationship Manager&lt;/span&gt; needs.&lt;/h2&gt;
           &lt;p&gt;&quot;Know which members need me today, why, and what single action will help most — without spending my morning digging through systems.&quot;&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&quot;deck-content&quot;&gt;
@@ -5534,8 +5534,8 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;section class=&quot;deck-slide&quot; data-part=&quot;3&quot;&gt;
       &lt;div class=&quot;deck-split&quot;&gt;
         &lt;div class=&quot;deck-hero&quot;&gt;
-          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Credit Union&lt;/span&gt;
-          &lt;h2&gt;Jobs to be done&lt;/h2&gt;
+          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Jobs to be done&lt;/span&gt;
+          &lt;h2&gt;What the &lt;span class=&quot;accent&quot;&gt;Credit Union&lt;/span&gt; needs.&lt;/h2&gt;
           &lt;p&gt;&quot;Keep our members financially healthy and our loan portfolio healthy — at the same time — while staying defensible to examiners.&quot;&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&quot;deck-content&quot;&gt;
@@ -5552,8 +5552,8 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;section class=&quot;deck-slide&quot; data-part=&quot;3&quot;&gt;
       &lt;div class=&quot;deck-split&quot;&gt;
         &lt;div class=&quot;deck-hero&quot;&gt;
-          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Member &lt;span style=&quot;opacity:.8;font-weight:600&quot;&gt;· Phase 2&lt;/span&gt;&lt;/span&gt;
-          &lt;h2&gt;Jobs to be done&lt;/h2&gt;
+          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Jobs to be done &lt;span style=&quot;opacity:.8;font-weight:600&quot;&gt;· Phase 2&lt;/span&gt;&lt;/span&gt;
+          &lt;h2&gt;What the &lt;span class=&quot;accent&quot;&gt;Member&lt;/span&gt; needs.&lt;/h2&gt;
           &lt;p&gt;&quot;Help me before things spiral — and treat me like a person my credit union actually cares about, not an account number.&quot;&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&quot;deck-content&quot;&gt;
@@ -5572,7 +5572,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;section class=&quot;deck-slide&quot; data-part=&quot;4&quot;&gt;
       &lt;div class=&quot;deck-split&quot;&gt;
         &lt;div class=&quot;deck-hero&quot;&gt;
-          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Part 4 · Outcomes &amp;amp; Impact&lt;/span&gt;
+          &lt;span class=&quot;deck-eyebrow&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Outcomes &amp;amp; Impact&lt;/span&gt;
           &lt;h2&gt;The impact for a credit union, in real numbers.&lt;/h2&gt;
           &lt;p&gt;Prevention compounds. Fewer charge-offs, lower collections cost, stronger retention, and better financial planning — all from acting early on signals you already have.&lt;/p&gt;
           &lt;div class=&quot;deck-hero-stats&quot; style=&quot;margin-top:30px&quot;&gt;&lt;div class=&quot;deck-hs&quot;&gt;&lt;div class=&quot;v&quot;&gt;~$1.9M&lt;/div&gt;&lt;div class=&quot;l&quot;&gt;estimated annual impact for a mid-size credit union&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
@@ -5613,7 +5613,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;!-- ============ PART 5 · SLIDE 13 : AI-NATIVE VS BOLTED-ON ============ --&gt;
     &lt;section class=&quot;deck-slide&quot; data-part=&quot;5&quot;&gt;
       &lt;div class=&quot;deck-content&quot; style=&quot;padding:50px 8%;justify-content:center&quot;&gt;
-        &lt;div class=&quot;deck-kh&quot; style=&quot;text-align:center&quot;&gt;Part 5 · AI-Native Vision&lt;/div&gt;
+        &lt;div class=&quot;deck-kh&quot; style=&quot;text-align:center&quot;&gt;AI-Native Vision&lt;/div&gt;
         &lt;h3 style=&quot;text-align:center;font-size:26px;margin-bottom:8px&quot;&gt;AI-native, not AI-bolted-on&lt;/h3&gt;
         &lt;p style=&quot;text-align:center;max-width:640px;margin:0 auto 28px&quot;&gt;Most &quot;AI features&quot; score a risk and hand you a dashboard. Ours detects the signal and completes the action inside the same governed conversation.&lt;/p&gt;
         &lt;div class=&quot;deck-compare&quot;&gt;
@@ -5683,7 +5683,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     &lt;section class=&quot;deck-slide&quot; data-part=&quot;6&quot;&gt;
       &lt;div class=&quot;deck-solo&quot;&gt;
         &lt;div class=&quot;inner&quot;&gt;
-          &lt;span class=&quot;tag&quot;&gt;&lt;span style=&quot;width:6px;height:6px;border-radius:50%;background:#7ee0c6;display:inline-block&quot;&gt;&lt;/span&gt; Part 6 · The Reframe&lt;/span&gt;
+          &lt;span class=&quot;tag&quot;&gt;&lt;span style=&quot;width:6px;height:6px;border-radius:50%;background:#f9a8d4;display:inline-block&quot;&gt;&lt;/span&gt; The Reframe&lt;/span&gt;
           &lt;h1&gt;Stop collecting&lt;br&gt;on crises.&lt;br&gt;&lt;span class=&quot;accent&quot;&gt;Start preventing them.&lt;/span&gt;&lt;/h1&gt;
           &lt;div class=&quot;sub&quot;&gt;The data to see hardship coming already exists. The moment to help is weeks before the missed payment. An AI-native agent owns that moment — protecting members, and the portfolio, at the same time.&lt;/div&gt;
           &lt;div style=&quot;margin-top:34px&quot;&gt;&lt;button class=&quot;deck-btn primary&quot; style=&quot;font-size:15px;padding:13px 26px&quot; onclick=&quot;deckFinish()&quot;&gt;Continue to sign in →&lt;/button&gt;&lt;/div&gt;
@@ -5694,7 +5694,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
   &lt;/div&gt;
 
   &lt;div class=&quot;deck-nav&quot;&gt;
-    &lt;div class=&quot;deck-nav-info&quot; id=&quot;deckInfo&quot;&gt;Part 1 of 6 · Background &amp;amp; Context&lt;/div&gt;
+    &lt;div class=&quot;deck-nav-info&quot; id=&quot;deckInfo&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;deck-nav-btns&quot;&gt;
       &lt;button class=&quot;deck-btn ghost&quot; id=&quot;deckPrev&quot; onclick=&quot;deckGo(-1)&quot; disabled&gt;‹ Back&lt;/button&gt;
       &lt;button class=&quot;deck-btn primary&quot; id=&quot;deckNext&quot; onclick=&quot;deckGo(1)&quot;&gt;Next ›&lt;/button&gt;
@@ -5728,8 +5728,6 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     // reset any inner scroll containers (hero/content panes) so the new slide starts at the top
     var scrollers=slides[idx].querySelectorAll(&#x27;.deck-content,.deck-hero,.deck-solo&#x27;);
     for(var si=0;si&lt;scrollers.length;si++){ scrollers[si].scrollTop=0; }
-    var part = parseInt(slides[idx].getAttribute(&#x27;data-part&#x27;),10);
-    document.getElementById(&#x27;deckInfo&#x27;).textContent=&#x27;Part &#x27;+part+&#x27; of 6 · &#x27;+parts[part-1];
     document.getElementById(&#x27;deckPrev&#x27;).disabled = (idx===0);
     var next=document.getElementById(&#x27;deckNext&#x27;);
     if(idx===slides.length-1){ next.textContent=&#x27;Continue to sign in →&#x27;; next.onclick=deckFinish; }
@@ -5740,6 +5738,14 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
     var deck=document.getElementById(&#x27;deck&#x27;);
     deck.classList.add(&#x27;hide&#x27;);
     setTimeout(function(){ deck.style.display=&#x27;none&#x27;; },500);
+  };
+  window.deckRestart=function(){
+    var deck=document.getElementById(&#x27;deck&#x27;);
+    if(!deck) return;
+    deck.style.display=&#x27;&#x27;;
+    deck.classList.remove(&#x27;hide&#x27;);
+    deckShow(0);
+    deck.scrollTop=0;
   };
   // keyboard nav
   document.addEventListener(&#x27;keydown&#x27;,function(e){
@@ -5759,13 +5765,7 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
   &lt;!-- login --&gt;
   &lt;div class=&quot;lg-auth&quot;&gt;
     &lt;div class=&quot;lg-card&quot;&gt;
-      &lt;div class=&quot;lg-card-brand&quot;&gt;
-        &lt;div class=&quot;lg-card-logo&quot;&gt;&lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z&quot; stroke=&quot;#fff&quot; stroke-width=&quot;1.7&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;path d=&quot;M9 12l2 2 4-4.5&quot; stroke=&quot;#8fe6d0&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;div class=&quot;lg-card-name&quot;&gt;Eltropy · Financial Wellness Agent&lt;/div&gt;&lt;div class=&quot;lg-card-org&quot;&gt;Coastal Credit Union&lt;/div&gt;&lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;h2&gt;Sign in to start your day&lt;/h2&gt;
-      &lt;p class=&quot;lg-sub&quot;&gt;Welcome back. Your agent has already reviewed your members overnight.&lt;/p&gt;
+      &lt;h2&gt;Sign in&lt;/h2&gt;
 
       &lt;div class=&quot;lg-field&quot;&gt;
         &lt;label class=&quot;lg-label&quot; for=&quot;lgEmail&quot;&gt;Work email&lt;/label&gt;
@@ -5797,10 +5797,12 @@ html,body{height:100%;}body{overflow:hidden;}body{font-family:var(--font);backgr
         &lt;span class=&quot;lg-btn-label&quot;&gt;Sign in&lt;/span&gt;
       &lt;/button&gt;
 
-      &lt;div class=&quot;lg-hint&quot;&gt;&lt;b&gt;Demo:&lt;/b&gt; credentials are pre-filled — just press &lt;b&gt;Sign in&lt;/b&gt; to enter your morning view.&lt;/div&gt;
-
-      &lt;div class=&quot;lg-authfoot&quot;&gt;Protected by Eltropy · Single sign-on enabled&lt;/div&gt;
+      &lt;div class=&quot;lg-hint&quot;&gt;&lt;b&gt;Demo:&lt;/b&gt; credentials are pre-filled — just press &lt;b&gt;Sign in&lt;/b&gt;.&lt;/div&gt;
     &lt;/div&gt;
+    &lt;button class=&quot;lg-back-deck&quot; onclick=&quot;deckRestart()&quot;&gt;
+      &lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M19 12H5m0 0l6 6m-6-6l6-6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;
+      Back to presentation
+    &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
